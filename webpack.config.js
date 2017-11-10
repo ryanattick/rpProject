@@ -6,13 +6,16 @@ var HTMLWebpackPluginConfig = new HTMLWedpackPlugin({
 });
 
 module.exports = {
-  entry: __dirname + '/index.jsx',
+  entry: __dirname + '/index.js',
   module: {
     loaders: [
       {
-        test: /\.jsx?/,
+        test : /\.jsx?/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader : 'babel-loader',
+        query: {
+          presets: ['react']
+        }
       }
     ]
   },
