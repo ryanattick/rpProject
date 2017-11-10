@@ -24,6 +24,7 @@
     "express": "^4.16.2",
     "jquery": "^3.2.1",
     "node-flickr": "^1.0.0",
+    "path": "^0.12.7",
     "react": "^16.1.0",
     "react-dom": "^16.1.0",
     "request": "^2.83.0"

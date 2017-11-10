@@ -4,6 +4,7 @@ var HTMLWebpackPluginConfig = new HTMLWedpackPlugin({
   filename: 'index.html',
   inject: 'body'
 });
+var path = require('path');
 
 module.exports = {
   entry: __dirname + '/index.js',
@@ -15,7 +16,7 @@ module.exports = {
         loader : 'babel-loader',
         query: {
           presets: ['react']
-        }
+        },
       }
     ]
   },
