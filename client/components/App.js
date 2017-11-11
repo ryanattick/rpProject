@@ -4,8 +4,8 @@ import Sidebar from './Sidebar.js';
 import $ from 'jquery';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {GridList, GridTile} from 'material-ui/GridList';
+import LinearProgress from 'material-ui/LinearProgress';
 import style from '../style/app.css';
-
 
 
 
@@ -18,7 +18,8 @@ class App extends Component {
                 server: '',
                 id: '',
                 secret: ''
-              }]
+              }],
+     completed: 0
     };
     this.getSearchResult = this.getSearchResult.bind(this);
   }
@@ -27,16 +28,43 @@ requestToServer (searchRequest) {
   $.get('/test', {search: searchRequest}, (data) => {
     this.setState({
       photos: data
-    }, () => {console.log(this.state.photos[0].title)})
+    })
   })
 }
 
 componentWillMount (searchRequest) {
-  this.requestToServer('cycling');
+  this.requestToServer('dogs');
 }
 
 getSearchResult (searchRequest) {
   this.requestToServer(searchRequest);
+  this.setState({
+    completed: 0
+  }, () => {
+    Promise.resolve(this.componentWillUnmount())
+    .then(() => {
+      this.componentDidMount();
+    })
+  })
+}
+
+
+componentDidMount() {
+  this.timer = setTimeout(() => this.progress(50), 1000);
+}
+
+componentWillUnmount() {
+  clearTimeout(this.timer);
+}
+
+progress(completed) {
+  if (completed > 100) {
+    this.setState({completed: 100});
+  } else {
+    this.setState({completed});
+    const diff = Math.random() * 20;
+    this.timer = setTimeout(() => this.progress(completed + diff), 1000);
+  }
 }
 
 
@@ -58,6 +86,9 @@ getSearchResult (searchRequest) {
 
     return (
       <MuiThemeProvider>
+        {this.state.completed < 100 &&          
+          <LinearProgress mode="determinate" value={this.state.completed} />
+        }
         <div className={style.App}>
           <GridList
            cellHeight={180}

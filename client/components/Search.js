@@ -32,7 +32,7 @@ handleSubmit(event) {
     return (
       <form onSubmit={this.handleSubmit}>
         <label style={{margin: '20px'}}>
-          <TextField hintText="Search Subreddits" value={this.state.value} style={{maxWidth: '60%'}}  underlineFocusStyle={{borderColor: '#2F6795'}} onChange={this.handleChange}/>
+          <TextField hintText="Search Images" value={this.state.value} style={{maxWidth: '60%'}}  underlineFocusStyle={{borderColor: '#2F6795'}} onChange={this.handleChange}/>
         </label>
         <RaisedButton label="Go" onClick={this.handleSubmit}/>
       </form>

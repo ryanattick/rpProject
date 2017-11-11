@@ -17,7 +17,6 @@ app.get('/test', function (req, res) {
   flickr.get("photos.search", {"tags":req.query.search}, function(err, result){
     if (err) return console.error(err);
     res.send(result.photos.photo);
-    console.log(req.query, 'yeah??')
   });
 })
 
