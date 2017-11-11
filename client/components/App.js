@@ -7,8 +7,11 @@ import {GridList, GridTile} from 'material-ui/GridList';
 import LinearProgress from 'material-ui/LinearProgress';
 import AppBar from 'material-ui/AppBar';
 import Dialog from 'material-ui/Dialog';
+import IconButton from 'material-ui/IconButton';
 import FlatButton from 'material-ui/FlatButton';
+import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import style from '../style/app.css';
+import Favorites from './Favorites.js';
 
 
 
@@ -22,11 +25,13 @@ class App extends Component {
                 id: '',
                 secret: ''
               }],
+     page: 'main',
      completed: 0,
      searchRequest: 'Dogs',
      pastSearches: [],
      open: false,
-     dialoxBoxContents: []
+     dialoxBoxContents: [],
+     favorites: [],
     };
     this.getSearchResult = this.getSearchResult.bind(this);
     this.handleRemovePastSearch = this.handleRemovePastSearch.bind(this);
@@ -34,8 +39,12 @@ class App extends Component {
     this.handleClose = this.handleClose.bind(this);
     this.handleOpen = this.handleOpen.bind(this);
     this.setDialogBoxContents = this.setDialogBoxContents.bind(this);
+    this.addToFavorites = this.addToFavorites.bind(this);
+    this.goToFavorites = this.goToFavorites.bind(this);
+    this.backToMain = this.backToMain.bind(this);
   }
 
+//Dialog Box Functions
 handleOpen (photo) {
    this.setState({open: true});
  };
@@ -49,10 +58,10 @@ handleOpen (photo) {
      dialoxBoxContents: chosenPhoto
    }, () => {
      this.handleOpen();
-     console.log(this.state.dialoxBoxContents, 'PHOTO!!')
    })
  }
 
+//Search Functions
 requestToServer (searchRequest) {
   $.get('/test', {search: searchRequest}, (data) => {
     this.setState({
@@ -93,7 +102,26 @@ getSearchResult (searchRequest) {
   })
 }
 
+handleRemovePastSearch (searchToRemove) {
+  for (var i = 0; i < this.state.pastSearches.length; i++) {
+    if (this.state.pastSearches[i] === searchToRemove) {
+      this.state.pastSearches.splice(i, 1);
+    }
+  }
+  this.getSearchResult('Dogs');
+  this.setState({
+    pastSearches: this.state.pastSearches
+  })
+}
 
+pastSearchClick (clickedPastSearchTerm) {
+  this.setState({
+    photos: clickedPastSearchTerm.photos,
+    searchRequest: clickedPastSearchTerm.searchTerm
+  })
+}
+
+//Progress Bar Functions
 componentDidMount() {
   this.timer = setTimeout(() => this.progress(50), 1000);
 }
@@ -112,40 +140,37 @@ progress(completed) {
   }
 }
 
-handleRemovePastSearch (searchToRemove) {
-  for (var i = 0; i < this.state.pastSearches.length; i++) {
-    if (this.state.pastSearches[i] === searchToRemove) {
-      this.state.pastSearches.splice(i, 1);
-    }
-  }
-  this.getSearchResult('Dogs');
+//Favorite Functions
+addToFavorites (photoToAddToFavorites) {
+  this.state.favorites.push(photoToAddToFavorites);
   this.setState({
-    pastSearches: this.state.pastSearches
+    favorites: this.state.favorites
+  }, () => {
+    console.log(this.state.favorites, 'FAVORITES')
   })
 }
 
-pastSearchClick (clickedPastSearchTerm) {
+goToFavorites () {
   this.setState({
-    photos: clickedPastSearchTerm.photos,
-    searchRequest: clickedPastSearchTerm.searchTerm
-  }, () => {
-    console.log(clickedPastSearchTerm);
+    page: 'favorites'
   })
 }
+
+backToMain () {
+  this.setState({
+    page: 'main'
+  })
+}
+
+
 
 
 
   render() {
     const actions = [
        <FlatButton
-         label="Cancel"
+         label="Close"
          primary={true}
-         onClick={this.handleClose}
-       />,
-       <FlatButton
-         label="Submit"
-         primary={true}
-         keyboardFocused={true}
          onClick={this.handleClose}
        />,
      ];
@@ -164,8 +189,8 @@ pastSearchClick (clickedPastSearchTerm) {
     };
 
     return (
-      <MuiThemeProvider>
-        <AppBar
+        <MuiThemeProvider>
+          <AppBar
           title="Coding Challenge"
           showMenuIconButton={false}
           style={{padding: '30px', background: 'red'}}
@@ -173,32 +198,39 @@ pastSearchClick (clickedPastSearchTerm) {
         {this.state.completed < 100 &&
           <LinearProgress mode="determinate" value={this.state.completed} />
         } <br/>
-        <div className={style.App}>
-          <GridList
-           cellHeight={180}
-           style={styles.gridList}
-         >
-           {this.state.photos.map((photo, index) => (
-             <GridTile
-               key={index}
-               title={photo.title}
-             >
-               <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} onClick={this.setDialogBoxContents.bind(this, photo)}/>
-             </GridTile>
-           ))}
-         </GridList>
-         <Dialog
-           title={this.state.dialoxBoxContents.title}
-           actions={actions}
-           modal={false}
-           open={this.state.open}
-           onRequestClose={this.handleClose}
-         >
-           <img src={`https://farm${this.state.dialoxBoxContents.farm}.staticflickr.com/${this.state.dialoxBoxContents.server}/${this.state.dialoxBoxContents.id}_${this.state.dialoxBoxContents.secret}.jpg`} />
-         </Dialog>
-         <Sidebar searchRequest={this.state.searchRequest} handleRemovePastSearch={this.handleRemovePastSearch} pastSearches={this.state.pastSearches} getSearchResult={this.getSearchResult} pastSearchClick={this.pastSearchClick}/>
-        </div>
-      </MuiThemeProvider>
+        {this.state.page === 'main' &&
+        <div>
+          <div className={style.App}>
+            <GridList
+              cellHeight={180}
+              style={styles.gridList}
+              >
+              {this.state.photos.map((photo, index) => (
+                <GridTile
+                  key={index}
+                  title={photo.title}
+                  actionIcon={<IconButton onClick={this.addToFavorites.bind(this, photo)}><StarBorder color="white" /></IconButton>}
+                  >
+                    <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} onClick={this.setDialogBoxContents.bind(this, photo)}/>
+                  </GridTile>
+                ))}
+              </GridList>
+              <Dialog
+                title={this.state.dialoxBoxContents.title}
+                actions={actions}
+                modal={false}
+                open={this.state.open}
+                onRequestClose={this.handleClose}
+                >
+                  <img src={`https://farm${this.state.dialoxBoxContents.farm}.staticflickr.com/${this.state.dialoxBoxContents.server}/${this.state.dialoxBoxContents.id}_${this.state.dialoxBoxContents.secret}.jpg`} />
+                </Dialog>
+                <Sidebar searchRequest={this.state.searchRequest} handleRemovePastSearch={this.handleRemovePastSearch} pastSearches={this.state.pastSearches} getSearchResult={this.getSearchResult} pastSearchClick={this.pastSearchClick} goToFavorites={this.goToFavorites}/>
+            </div>
+          </div>}
+          {this.state.page === 'favorites' &&
+            <Favorites backToMain={this.backToMain} favorites={this.state.favorites} dialoxBoxContents={this.state.dialoxBoxContents}/>
+          }
+        </MuiThemeProvider>
     );
   }
 }
