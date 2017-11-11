@@ -13,7 +13,7 @@ class SearchedPhotos extends Component {
     super(props);
     this.state = {
       dialogBoxContents: [],
-      open: 'false'
+      open: false
     };
     this.handleClose = this.handleClose.bind(this);
     this.handleOpen = this.handleOpen.bind(this);
@@ -73,7 +73,9 @@ class SearchedPhotos extends Component {
                   title={photo.title}
                   actionIcon={<IconButton onClick={this.props.addToFavorites.bind(this, photo)}><StarBorder color="white" /></IconButton>}
                 >
-                  <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} onClick={ this.setDialogBoxContents.bind(this, photo)}/>
+                  <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}
+                  onClick={ this.setDialogBoxContents.bind(this, photo)}
+                />
                 </GridTile>
               ))}
             </GridList>

@@ -18,8 +18,8 @@ class Favorites extends Component {
         justifyContent: 'space-around',
       },
       gridList: {
-        width: 500,
-        height: 450,
+        width: 600,
+        height: 550,
         overflowY: 'auto',
       },
     };
@@ -32,6 +32,7 @@ class Favorites extends Component {
             <GridList
               cellHeight={180}
               style={styles.gridList}
+              cols={3}
             >
               {this.props.favorites.map((photo, index) => (
                 <GridTile

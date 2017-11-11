@@ -124,8 +124,6 @@ addToFavorites (photoToAddToFavorites) {
   this.state.favorites.push(photoToAddToFavorites);
   this.setState({
     favorites: this.state.favorites
-  }, () => {
-    console.log(this.state.favorites, 'FAVORITES')
   })
 }
 
