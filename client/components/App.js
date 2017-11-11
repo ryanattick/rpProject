@@ -6,6 +6,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {GridList, GridTile} from 'material-ui/GridList';
 import LinearProgress from 'material-ui/LinearProgress';
 import AppBar from 'material-ui/AppBar';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
 import style from '../style/app.css';
 
 
@@ -22,12 +24,34 @@ class App extends Component {
               }],
      completed: 0,
      searchRequest: 'Dogs',
-     pastSearches: []
+     pastSearches: [],
+     open: false,
+     dialoxBoxContents: []
     };
     this.getSearchResult = this.getSearchResult.bind(this);
     this.handleRemovePastSearch = this.handleRemovePastSearch.bind(this);
     this.pastSearchClick = this.pastSearchClick.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.handleOpen = this.handleOpen.bind(this);
+    this.setDialogBoxContents = this.setDialogBoxContents.bind(this);
   }
+
+handleOpen (photo) {
+   this.setState({open: true});
+ };
+
+ handleClose () {
+   this.setState({open: false});
+ };
+
+ setDialogBoxContents (chosenPhoto) {
+   this.setState({
+     dialoxBoxContents: chosenPhoto
+   }, () => {
+     this.handleOpen();
+     console.log(this.state.dialoxBoxContents, 'PHOTO!!')
+   })
+ }
 
 requestToServer (searchRequest) {
   $.get('/test', {search: searchRequest}, (data) => {
@@ -112,6 +136,19 @@ pastSearchClick (clickedPastSearchTerm) {
 
 
   render() {
+    const actions = [
+       <FlatButton
+         label="Cancel"
+         primary={true}
+         onClick={this.handleClose}
+       />,
+       <FlatButton
+         label="Submit"
+         primary={true}
+         keyboardFocused={true}
+         onClick={this.handleClose}
+       />,
+     ];
 
     const styles = {
       root: {
@@ -146,10 +183,19 @@ pastSearchClick (clickedPastSearchTerm) {
                key={index}
                title={photo.title}
              >
-               <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} />
+               <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} onClick={this.setDialogBoxContents.bind(this, photo)}/>
              </GridTile>
            ))}
          </GridList>
+         <Dialog
+           title={this.state.dialoxBoxContents.title}
+           actions={actions}
+           modal={false}
+           open={this.state.open}
+           onRequestClose={this.handleClose}
+         >
+           <img src={`https://farm${this.state.dialoxBoxContents.farm}.staticflickr.com/${this.state.dialoxBoxContents.server}/${this.state.dialoxBoxContents.id}_${this.state.dialoxBoxContents.secret}.jpg`} />
+         </Dialog>
          <Sidebar searchRequest={this.state.searchRequest} handleRemovePastSearch={this.handleRemovePastSearch} pastSearches={this.state.pastSearches} getSearchResult={this.getSearchResult} pastSearchClick={this.pastSearchClick}/>
         </div>
       </MuiThemeProvider>
