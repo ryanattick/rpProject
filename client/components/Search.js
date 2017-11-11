@@ -19,16 +19,13 @@ handleChange(event) {
 }
 
 handleSubmit(event) {
-    event.preventDefault();
-    Promise.resolve(this.props.getSearchResult(this.state.value))
-    .then(() => {
-      this.props.captureNewSubreddit(this.state.value);
-    })
-    .then(() => {
-      this.setState({
-        value: ''
-      });
+  event.preventDefault();
+  Promise.resolve(this.props.getSearchResult(this.state.value))
+  .then(() => {
+    this.setState({
+      value: ''
     });
+  });
   }
 
   render() {

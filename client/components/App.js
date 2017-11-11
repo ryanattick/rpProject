@@ -20,14 +20,23 @@ class App extends Component {
                 secret: ''
               }]
     };
+    this.getSearchResult = this.getSearchResult.bind(this);
   }
 
-componentWillMount () {
-  $.get('/test', {search: 'bikes'}, (data) => {
+requestToServer (searchRequest) {
+  $.get('/test', {search: searchRequest}, (data) => {
     this.setState({
       photos: data
     }, () => {console.log(this.state.photos[0].title)})
   })
+}
+
+componentWillMount (searchRequest) {
+  this.requestToServer('cycling');
+}
+
+getSearchResult (searchRequest) {
+  this.requestToServer(searchRequest);
 }
 
 
@@ -63,7 +72,7 @@ componentWillMount () {
              </GridTile>
            ))}
          </GridList>
-         <Sidebar/>
+         <Sidebar getSearchResult={this.getSearchResult}/>
         </div>
       </MuiThemeProvider>
     );
