@@ -5,6 +5,7 @@ import $ from 'jquery';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {GridList, GridTile} from 'material-ui/GridList';
 import LinearProgress from 'material-ui/LinearProgress';
+import AppBar from 'material-ui/AppBar';
 import style from '../style/app.css';
 
 
@@ -19,7 +20,9 @@ class App extends Component {
                 id: '',
                 secret: ''
               }],
-     completed: 0
+     completed: 0,
+     searchRequest: 'Dogs',
+     pastSearches: []
     };
     this.getSearchResult = this.getSearchResult.bind(this);
   }
@@ -33,13 +36,17 @@ requestToServer (searchRequest) {
 }
 
 componentWillMount (searchRequest) {
-  this.requestToServer('dogs');
+  this.requestToServer(this.state.searchRequest);
 }
 
 getSearchResult (searchRequest) {
+  searchRequest = searchRequest.replace(/\w\S*/g, (txt) => {return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();})
+
   this.requestToServer(searchRequest);
+  this.state.pastSearches.push(searchRequest);
   this.setState({
-    completed: 0
+    completed: 0,
+    searchRequest: searchRequest
   }, () => {
     Promise.resolve(this.componentWillUnmount())
     .then(() => {
@@ -78,17 +85,22 @@ progress(completed) {
         justifyContent: 'space-around',
       },
       gridList: {
-        width: 700,
-        height: 650,
+        width: 750,
+        height: 700,
         overflowY: 'auto',
       },
     };
 
     return (
       <MuiThemeProvider>
-        {this.state.completed < 100 &&          
+        <AppBar
+          title="Coding Challenge"
+          showMenuIconButton={false}
+          style={{padding: '30px', background: 'red'}}
+        />
+        {this.state.completed < 100 &&
           <LinearProgress mode="determinate" value={this.state.completed} />
-        }
+        } <br/>
         <div className={style.App}>
           <GridList
            cellHeight={180}
@@ -103,7 +115,7 @@ progress(completed) {
              </GridTile>
            ))}
          </GridList>
-         <Sidebar getSearchResult={this.getSearchResult}/>
+         <Sidebar searchRequest={this.state.searchRequest} pastSearches={this.state.pastSearches} getSearchResult={this.getSearchResult}/>
         </div>
       </MuiThemeProvider>
     );
