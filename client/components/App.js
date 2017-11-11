@@ -26,12 +26,15 @@ class App extends Component {
     };
     this.getSearchResult = this.getSearchResult.bind(this);
     this.handleRemovePastSearch = this.handleRemovePastSearch.bind(this);
+    this.pastSearchClick = this.pastSearchClick.bind(this);
   }
 
 requestToServer (searchRequest) {
   $.get('/test', {search: searchRequest}, (data) => {
     this.setState({
       photos: data
+    }, () => {
+      this.cachePastSearchData(searchRequest);
     })
   })
 }
@@ -48,17 +51,13 @@ cachePastSearchData (searchRequest) {
     }
   }
   if (!alreadyContainsSearchTerm) {
-    this.state.pastSearches.push({searchTerm: searchRequest, data: this.state.photos});
-    console.log(this.state.pastSearches);
+    this.state.pastSearches.push({searchTerm: searchRequest, photos: this.state.photos});
   }
 }
 
 getSearchResult (searchRequest) {
   searchRequest = searchRequest.replace(/\w\S*/g, (txt) => {return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();})
-  Promise.resolve(this.requestToServer(searchRequest))
-    .then(() => {
-      this.cachePastSearchData(searchRequest);
-    })
+  this.requestToServer(searchRequest);
   this.setState({
     completed: 0,
     searchRequest: searchRequest
@@ -98,6 +97,15 @@ handleRemovePastSearch (searchToRemove) {
   this.getSearchResult('Dogs');
   this.setState({
     pastSearches: this.state.pastSearches
+  })
+}
+
+pastSearchClick (clickedPastSearchTerm) {
+  this.setState({
+    photos: clickedPastSearchTerm.photos,
+    searchRequest: clickedPastSearchTerm.searchTerm
+  }, () => {
+    console.log(clickedPastSearchTerm);
   })
 }
 
@@ -142,7 +150,7 @@ handleRemovePastSearch (searchToRemove) {
              </GridTile>
            ))}
          </GridList>
-         <Sidebar searchRequest={this.state.searchRequest} handleRemovePastSearch={this.handleRemovePastSearch} pastSearches={this.state.pastSearches} getSearchResult={this.getSearchResult}/>
+         <Sidebar searchRequest={this.state.searchRequest} handleRemovePastSearch={this.handleRemovePastSearch} pastSearches={this.state.pastSearches} getSearchResult={this.getSearchResult} pastSearchClick={this.pastSearchClick}/>
         </div>
       </MuiThemeProvider>
     );

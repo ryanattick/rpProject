@@ -16,7 +16,7 @@ class PastSearches extends Component {
           <div>
             Past Searches:
             {this.props.pastSearches.map((search, index) => (
-              <div key={index} style={{margin: '20px', cursor: 'pointer'}} >
+              <div key={index} style={{margin: '20px', cursor: 'pointer'}} onClick={this.props.pastSearchClick.bind(this, search)}>
                 {search.searchTerm}
                 <DeleteForever onClick={this.props.handleRemovePastSearch.bind(this, search)} style={{maxWidth: '7%'}}/>
               </div>
