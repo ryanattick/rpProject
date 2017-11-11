@@ -25,6 +25,7 @@ class App extends Component {
      pastSearches: []
     };
     this.getSearchResult = this.getSearchResult.bind(this);
+    this.handleRemovePastSearch = this.handleRemovePastSearch.bind(this);
   }
 
 requestToServer (searchRequest) {
@@ -74,6 +75,17 @@ progress(completed) {
   }
 }
 
+handleRemovePastSearch (searchToRemove) {
+  for (var i = 0; i < this.state.pastSearches.length; i++) {
+    if (this.state.pastSearches[i] === searchToRemove) {
+      this.state.pastSearches.splice(i, 1);
+    }
+  }
+  this.setState({
+    pastSearches: this.state.pastSearches
+  })
+}
+
 
 
   render() {
@@ -115,7 +127,7 @@ progress(completed) {
              </GridTile>
            ))}
          </GridList>
-         <Sidebar searchRequest={this.state.searchRequest} pastSearches={this.state.pastSearches} getSearchResult={this.getSearchResult}/>
+         <Sidebar searchRequest={this.state.searchRequest} handleRemovePastSearch={this.handleRemovePastSearch} pastSearches={this.state.pastSearches} getSearchResult={this.getSearchResult}/>
         </div>
       </MuiThemeProvider>
     );

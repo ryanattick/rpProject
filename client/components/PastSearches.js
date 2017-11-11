@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Search from './Search.js';
+import DeleteForever from 'material-ui/svg-icons/action/delete-forever';
+
 
 
 class PastSearches extends Component {
@@ -15,7 +16,10 @@ class PastSearches extends Component {
           <div>
             Past Searches:
             {this.props.pastSearches.map((search, index) => (
-              <div style={{margin: '20px'}}>{search}</div>
+              <div style={{margin: '20px', cursor: 'pointer'}} >
+                {search}
+                <DeleteForever onClick={this.props.handleRemovePastSearch.bind(this, search)}/>
+              </div>
             ))}
           </div>
         }
