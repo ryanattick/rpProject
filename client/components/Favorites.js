@@ -37,9 +37,9 @@ class Favorites extends Component {
                 <GridTile
                   key={index}
                   title={photo.title}
-                  actionIcon={<IconButton><DeleteForever color="white" /></IconButton>}
+                  actionIcon={<IconButton><DeleteForever color="white" onClick={this.props.deleteFromFavorites.bind(this, photo)}/></IconButton>}
                 >
-                  <img src={`https://farm${this.state.dialoxBoxContents.farm}.staticflickr.com/${this.state.dialoxBoxContents.server}/${this.state.dialoxBoxContents.id}_${this.state.dialoxBoxContents.secret}.jpg`} />
+                  <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} />
                 </GridTile>
               ))}
             </GridList>
