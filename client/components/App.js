@@ -4,8 +4,6 @@ import Sidebar from './Sidebar.js';
 import $ from 'jquery';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {GridList, GridTile} from 'material-ui/GridList';
-import IconButton from 'material-ui/IconButton';
-import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import style from '../style/app.css';
 
 
@@ -25,7 +23,7 @@ class App extends Component {
   }
 
 componentWillMount () {
-  $.get('/test', (data) => {
+  $.get('/test', {search: 'bikes'}, (data) => {
     this.setState({
       photos: data
     }, () => {console.log(this.state.photos[0].title)})
@@ -60,7 +58,6 @@ componentWillMount () {
              <GridTile
                key={index}
                title={photo.title}
-               actionIcon={<IconButton><StarBorder color="white" /></IconButton>}
              >
                <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} />
              </GridTile>

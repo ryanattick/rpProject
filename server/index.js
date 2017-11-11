@@ -14,10 +14,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.get('/test', function (req, res) {
-  flickr.get("photos.search", {"tags":"dogs"}, function(err, result){
+  flickr.get("photos.search", {"tags":req.query.search}, function(err, result){
     if (err) return console.error(err);
-    console.log(result.photos.photo);
     res.send(result.photos.photo);
+    console.log(req.query, 'yeah??')
   });
 })
 
