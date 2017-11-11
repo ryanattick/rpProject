@@ -9,16 +9,16 @@ class PastSearches extends Component {
   render() {
     return (
       <div>
-        <div style={{padding: '20px'}}>
+        <div style={{margin: '20px'}}>
           Currently Viewing: {this.props.searchRequest}
         </div>
         {this.props.pastSearches.length > 0 &&
           <div>
             Past Searches:
             {this.props.pastSearches.map((search, index) => (
-              <div style={{margin: '20px', cursor: 'pointer'}} >
-                {search}
-                <DeleteForever onClick={this.props.handleRemovePastSearch.bind(this, search)}/>
+              <div key={index} style={{margin: '20px', cursor: 'pointer'}} >
+                {search.searchTerm}
+                <DeleteForever onClick={this.props.handleRemovePastSearch.bind(this, search)} style={{maxWidth: '7%'}}/>
               </div>
             ))}
           </div>

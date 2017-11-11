@@ -40,11 +40,25 @@ componentWillMount (searchRequest) {
   this.requestToServer(this.state.searchRequest);
 }
 
+cachePastSearchData (searchRequest) {
+  var alreadyContainsSearchTerm = false;
+  for (var i = 0; i < this.state.pastSearches.length; i++) {
+    if (this.state.pastSearches[i].searchTerm === searchRequest) {
+      alreadyContainsSearchTerm = true;
+    }
+  }
+  if (!alreadyContainsSearchTerm) {
+    this.state.pastSearches.push({searchTerm: searchRequest, data: this.state.photos});
+    console.log(this.state.pastSearches);
+  }
+}
+
 getSearchResult (searchRequest) {
   searchRequest = searchRequest.replace(/\w\S*/g, (txt) => {return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();})
-
-  this.requestToServer(searchRequest);
-  this.state.pastSearches.push(searchRequest);
+  Promise.resolve(this.requestToServer(searchRequest))
+    .then(() => {
+      this.cachePastSearchData(searchRequest);
+    })
   this.setState({
     completed: 0,
     searchRequest: searchRequest
@@ -81,6 +95,7 @@ handleRemovePastSearch (searchToRemove) {
       this.state.pastSearches.splice(i, 1);
     }
   }
+  this.getSearchResult('Dogs');
   this.setState({
     pastSearches: this.state.pastSearches
   })
