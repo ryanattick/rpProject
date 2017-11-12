@@ -8,6 +8,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import AppBar from 'material-ui/AppBar';
 
 
 
@@ -66,8 +67,17 @@ class Favorites extends Component {
 
     return (
       <MuiThemeProvider>
+        {/* <AppBar
+        title="Favorite Photos"
+        showMenuIconButton={false}
+        titleStyle={{fontSize: '2em', textAlign: 'center'}}
+        style={{background: 'black', marginTop: '0'}}>
+        </AppBar> */}
+        <div style={{backgroundColor: 'black', height: '100px', width: '40%', margin: 'auto', fontFamily: 'Roboto, sans-serif', color: 'white', textAlign: 'center', fontSize: '2em', verticalAlign: 'middle', lineHeight: '100px', marginBottom: '20px', borderRadius: '10px'}}>
+          Your Favorites
+        </div>
         {this.props.favorites.length === 0 &&
-          <div style={{color: '#B82601', fontSize: '3em', fontFamily: 'Roboto, sans-serif', margin: 'auto', textAlign: 'center', maxWidth: '60%'}}>
+          <div style={{color: '#B82601', fontSize: '3em', fontFamily: 'Roboto, sans-serif', margin: 'auto', textAlign: 'center', maxWidth: '60%', marginTop: '20px'}}>
             Please add some cool photos to your favorites by clicking the star icon.<br/>
             <StarBorder color="#B82601"/>
           </div>

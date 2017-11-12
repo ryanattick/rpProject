@@ -68,7 +68,7 @@ cachePastSearchData (searchRequest) {
       alreadyContainsSearchTerm = true;
     }
   }
-  if (!alreadyContainsSearchTerm) {
+  if (!alreadyContainsSearchTerm && this.state.photos.length > 0) {
     this.state.pastSearches.push({searchTerm: searchRequest, photos: this.state.photos});
   }
 }
@@ -88,16 +88,18 @@ getSearchResult (searchRequest) {
 }
 
 handleRemovePastSearch (searchToRemove) {
-  this.setState({
-    pastSearches: this.state.pastSearches,
-    searchRequest: 'Dogs'
-  })
+  var lastElement;
   for (var i = 0; i < this.state.pastSearches.length; i++) {
     if (this.state.pastSearches[i] === searchToRemove) {
       this.state.pastSearches.splice(i, 1);
     }
   }
-  this.getSearchResult('Dogs');
+  lastElement = this.state.pastSearches[this.state.pastSearches.length - 1] || 'Dogs';
+  this.getSearchResult(lastElement.searchTerm);
+  this.setState({
+    pastSearches: this.state.pastSearches,
+    searchRequest: lastElement.searchTerm
+  })
 }
 
 pastSearchClick (clickedPastSearchTerm) {
