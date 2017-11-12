@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Sidebar from './Sidebar.js';
 import $ from 'jquery';
+import style from '../style/app.css';
+
+//Components
+import Sidebar from './Sidebar.js';
+import Favorites from './Favorites.js';
+import SearchedPhotos from './SearchedPhotos.js';
+
+//Material-UI
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {GridList, GridTile} from 'material-ui/GridList';
 import LinearProgress from 'material-ui/LinearProgress';
 import AppBar from 'material-ui/AppBar';
 import IconButton from 'material-ui/IconButton';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
-import style from '../style/app.css';
-import Favorites from './Favorites.js';
-import SearchedPhotos from './SearchedPhotos.js';
+import RaisedButton from 'material-ui/RaisedButton';
+
 
 
 
@@ -155,16 +161,20 @@ deleteFromFavorites (photoToBeDeleted) {
 
 
   render() {
-
     return (
         <MuiThemeProvider>
           <AppBar
           title="Coding Challenge"
           showMenuIconButton={false}
-          style={{padding: '30px', background: 'red'}}
-        />
+          titleStyle={{fontSize: '3em'}}
+          style={{padding: '30px', background: 'black'}}>
+            <div style={{display: 'inline-flex', flexDirection: 'column', flexWrap: 'nowrap', justifyContent: 'center', alignContent: 'space-between', alignItems: 'center'}}>
+              <RaisedButton label="See Favorites" onClick={this.goToFavorites} style={{marginBottom: '30px'}} labelColor="#062F4F"/>
+              <RaisedButton label="Home" onClick={this.backToMain} labelColor="#062F4F" style={{marginBottom: '30px'}}/>
+            </div>
+          </AppBar>
         {this.state.completed < 100 &&
-          <LinearProgress mode="determinate" value={this.state.completed} />
+          <LinearProgress mode="determinate" value={this.state.completed} color="#B82601"/>
         } <br/>
         {this.state.page === 'main' &&
         <div>

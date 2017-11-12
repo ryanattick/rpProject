@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {GridList, GridTile} from 'material-ui/GridList';
+
+//Material-UI
 import IconButton from 'material-ui/IconButton';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import Dialog from 'material-ui/Dialog';
@@ -43,6 +45,7 @@ class SearchedPhotos extends Component {
          label="Close"
          primary={true}
          onClick={this.handleClose}
+         labelStyle={{color: '#813772'}}
        />,
      ];
 
@@ -74,8 +77,7 @@ class SearchedPhotos extends Component {
                   actionIcon={<IconButton onClick={this.props.addToFavorites.bind(this, photo)}><StarBorder color="white" /></IconButton>}
                 >
                   <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}
-                  onClick={ this.setDialogBoxContents.bind(this, photo)}
-                />
+                  onClick={ this.setDialogBoxContents.bind(this, photo)} style={{cursor: 'pointer'}}/>
                 </GridTile>
               ))}
             </GridList>
