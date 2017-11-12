@@ -64,6 +64,13 @@ class SearchedPhotos extends Component {
 
     return (
       <MuiThemeProvider>
+        {this.props.photos.length === 0 &&
+          <div style={{margin: 'auto', minHeight: '50%', fontFamily: 'Roboto, sans-serif', fontSize: '2em', textAlign: 'center'}}>
+            Sorry! There are no images that match your request. Please try searching for something else.
+            <img src="https://i.imgur.com/AgASQTd.jpg" style={{margin: 'auto', minHeight: '50%', display: 'block'}}/>
+          </div>
+        }
+        {this.props.photos.length > 0 &&
         <div>
           <div style={styles.root}>
             <GridList
@@ -74,7 +81,7 @@ class SearchedPhotos extends Component {
                 <GridTile
                   key={index}
                   title={photo.title}
-                  actionIcon={<IconButton onClick={this.props.addToFavorites.bind(this, photo)}><StarBorder color="white" /></IconButton>}
+                  actionIcon={<IconButton onClick={this.props.addToFavorites.bind(this, photo)}><StarBorder hoverColor='#B82601' color="white" /></IconButton>}
                 >
                   <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}
                   onClick={ this.setDialogBoxContents.bind(this, photo)} style={{cursor: 'pointer'}}/>
@@ -91,7 +98,7 @@ class SearchedPhotos extends Component {
                <img src={`https://farm${this.state.dialogBoxContents.farm}.staticflickr.com/${this.state.dialogBoxContents.server}/${this.state.dialogBoxContents.id}_${this.state.dialogBoxContents.secret}.jpg`} />
              </Dialog>
           </div>
-        </div>
+        </div>}
       </MuiThemeProvider>
     );
   }

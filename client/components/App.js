@@ -88,15 +88,16 @@ getSearchResult (searchRequest) {
 }
 
 handleRemovePastSearch (searchToRemove) {
+  this.setState({
+    pastSearches: this.state.pastSearches,
+    searchRequest: 'Dogs'
+  })
   for (var i = 0; i < this.state.pastSearches.length; i++) {
     if (this.state.pastSearches[i] === searchToRemove) {
       this.state.pastSearches.splice(i, 1);
     }
   }
   this.getSearchResult('Dogs');
-  this.setState({
-    pastSearches: this.state.pastSearches
-  })
 }
 
 pastSearchClick (clickedPastSearchTerm) {
@@ -169,13 +170,11 @@ deleteFromFavorites (photoToBeDeleted) {
           titleStyle={{fontSize: '3em'}}
           style={{padding: '30px', background: 'black'}}>
             <div style={{display: 'inline-flex', flexDirection: 'column', flexWrap: 'nowrap', justifyContent: 'center', alignContent: 'space-between', alignItems: 'center'}}>
-              <RaisedButton label="See Favorites" onClick={this.goToFavorites} style={{marginBottom: '30px'}} labelColor="#062F4F"/>
-              <RaisedButton label="Home" onClick={this.backToMain} labelColor="#062F4F" style={{marginBottom: '30px'}}/>
+              <RaisedButton label="See Favorites" onClick={this.goToFavorites} style={{marginBottom: '20px'}} labelColor="#062F4F"/>
+              <RaisedButton label="Home" onClick={this.backToMain} labelColor="#062F4F" style={{marginBottom: '20px'}}/>
             </div>
           </AppBar>
-        {this.state.completed < 100 &&
-          <LinearProgress mode="determinate" value={this.state.completed} color="#B82601"/>
-        } <br/>
+          <LinearProgress mode="determinate" value={this.state.completed} color="#B82601"/><br/>
         {this.state.page === 'main' &&
         <div>
           <div className={style.App}>

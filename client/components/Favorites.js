@@ -21,8 +21,8 @@ class Favorites extends Component {
         justifyContent: 'space-around',
       },
       gridList: {
-        width: 600,
-        height: 550,
+        width: 700,
+        height: 650,
         overflowY: 'auto',
       },
     };
@@ -30,9 +30,9 @@ class Favorites extends Component {
     return (
       <MuiThemeProvider>
         {this.props.favorites.length === 0 &&
-          <div style={{color: '#B82601', fontSize: '3em', fontFamily: 'Roboto, sans-serif', margin: 'auto', textAlight: 'center', maxWidth: '60%'}}>
-            Please add some cool photos to your favorites by clicking the star icon.
-            <StarBorder style={{maxWidth: '30%'}} color="#B82601"/>
+          <div style={{color: '#B82601', fontSize: '3em', fontFamily: 'Roboto, sans-serif', margin: 'auto', textAlign: 'center', maxWidth: '60%'}}>
+            Please add some cool photos to your favorites by clicking the star icon.<br/>
+            <StarBorder style={{maxHeight: '100%'}} color="#B82601"/>
           </div>
         }
         <div>

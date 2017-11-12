@@ -11,16 +11,13 @@ class PastSearches extends Component {
   render() {
     return (
       <div>
-        <div style={{margin: '20px', color: 'white', fontSize: '1.25em', fontFamily: 'Roboto, sans-serif'}}>
-          <span style={{fontFamily: 'Roboto, sans-serif', color: 'white'}}>Currently Viewing:</span> <span style={{fontWeight: 'bold' }}>{this.props.searchRequest}</span>
-        </div>
         {this.props.pastSearches.length > 0 &&
           <div style={{color: '#B82601', fontFamily: 'Roboto, sans-serif', fontSize: '1em', margin:'20px', marginTop:'50px'}}>
             <span style={{fontFamily: 'Roboto, sans-serif', color: 'white'}}>Past Searches:</span>
             {this.props.pastSearches.map((search, index) => (
-              <div key={index} style={{margin: '20px', cursor: 'pointer'}} onClick={this.props.pastSearchClick.bind(this, search)}>
-                <span style={{fontWeight: 'bold'}}>{search.searchTerm}</span>
-                <DeleteForever onClick={this.props.handleRemovePastSearch.bind(this, search)} color='#B82601' style={{maxWidth: '7%'}}/>
+              <div key={index} style={{margin: '20px', cursor: 'pointer'}}>
+                <span onClick={this.props.pastSearchClick.bind(this, search)} style={{fontWeight: 'bold'}}>{search.searchTerm}</span>
+                <DeleteForever onClick={this.props.handleRemovePastSearch.bind(this, search)} color='rgba(184,38,1, 0.6)' style={{maxWidth: '7%'}}/>
               </div>
             ))}
           </div>

@@ -39,6 +39,9 @@ handleSubmit(event) {
           </label>
           <RaisedButton label="Go" onClick={this.handleSubmit} labelColor="#062F4F"/>
         </form>
+        <div style={{margin: '20px', color: 'white', fontSize: '1.25em', fontFamily: 'Roboto, sans-serif', fontWeight: 'bold'}}>
+         {this.props.searchRequest}
+        </div>
       </div>
     );
   }
