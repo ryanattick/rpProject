@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {GridList, GridTile} from 'material-ui/GridList';
 
 //Material-UI
+import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import Dialog from 'material-ui/Dialog';
@@ -45,7 +45,7 @@ class SearchedPhotos extends Component {
          label="Close"
          primary={true}
          onClick={this.handleClose}
-         labelStyle={{color: '#813772'}}
+         labelStyle={{color: '#B82601'}}
        />,
      ];
 
@@ -94,8 +94,11 @@ class SearchedPhotos extends Component {
              modal={false}
              open={this.state.open}
              onRequestClose={this.handleClose}
+             titleStyle={{textAlign: 'center'}}
+             bodyStyle={{textAlign: 'center'}}
+             actionsContainerStyle={{textAlign: 'center'}}
              >
-               <img src={`https://farm${this.state.dialogBoxContents.farm}.staticflickr.com/${this.state.dialogBoxContents.server}/${this.state.dialogBoxContents.id}_${this.state.dialogBoxContents.secret}.jpg`} />
+               <img src={`https://farm${this.state.dialogBoxContents.farm}.staticflickr.com/${this.state.dialogBoxContents.server}/${this.state.dialogBoxContents.id}_${this.state.dialogBoxContents.secret}.jpg`} align="middle"/>
              </Dialog>
           </div>
         </div>}

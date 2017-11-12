@@ -165,13 +165,17 @@ deleteFromFavorites (photoToBeDeleted) {
     return (
         <MuiThemeProvider>
           <AppBar
-          title="Coding Challenge"
+          title="Redshift Coding Challenge"
           showMenuIconButton={false}
           titleStyle={{fontSize: '3em'}}
           style={{padding: '30px', background: 'black'}}>
             <div style={{display: 'inline-flex', flexDirection: 'column', flexWrap: 'nowrap', justifyContent: 'center', alignContent: 'space-between', alignItems: 'center'}}>
-              <RaisedButton label="See Favorites" onClick={this.goToFavorites} style={{marginBottom: '20px'}} labelColor="#062F4F"/>
-              <RaisedButton label="Home" onClick={this.backToMain} labelColor="#062F4F" style={{marginBottom: '20px'}}/>
+              {this.state.page === 'main' &&
+                <RaisedButton label="Favorites" onClick={this.goToFavorites} style={{marginBottom: '20px'}} labelColor="#062F4F"/>
+              }
+              {this.state.page === 'favorites' &&
+                <RaisedButton label="Home" onClick={this.backToMain} labelColor="#062F4F" style={{marginBottom: '20px'}}/>
+              }
             </div>
           </AppBar>
           <LinearProgress mode="determinate" value={this.state.completed} color="#B82601"/><br/>
