@@ -67,52 +67,48 @@ class Favorites extends Component {
 
     return (
       <MuiThemeProvider>
-        {/* <AppBar
-        title="Favorite Photos"
-        showMenuIconButton={false}
-        titleStyle={{fontSize: '2em', textAlign: 'center'}}
-        style={{background: 'black', marginTop: '0'}}>
-        </AppBar> */}
-        <div style={{backgroundColor: 'black', height: '100px', width: '40%', margin: 'auto', fontFamily: 'Roboto, sans-serif', color: 'white', textAlign: 'center', fontSize: '2em', verticalAlign: 'middle', lineHeight: '100px', marginBottom: '20px', borderRadius: '10px'}}>
-          Your Favorites
-        </div>
         {this.props.favorites.length === 0 &&
           <div style={{color: '#B82601', fontSize: '3em', fontFamily: 'Roboto, sans-serif', margin: 'auto', textAlign: 'center', maxWidth: '60%', marginTop: '20px'}}>
             Please add some cool photos to your favorites by clicking the star icon.<br/>
             <StarBorder color="#B82601"/>
           </div>
         }
-        <div>
-          <div style={styles.root}>
-            <GridList
-              cellHeight={300}
-              style={styles.gridList}
-              cols={3}
-            >
-              {this.props.favorites.map((photo, index) => (
-                <GridTile
-                  key={index}
-                  title={photo.title}
-                  actionIcon={<IconButton><DeleteForever color="white" onClick={this.props.deleteFromFavorites.bind(this, photo)}/></IconButton>}
-                >
-                  <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} onClick={ this.setDialogBoxContents.bind(this, photo)} style={{cursor: 'pointer'}}/>
-                </GridTile>
-              ))}
-            </GridList>
-            <Dialog
-             title={this.state.dialogBoxContents.title}
-             actions={actions}
-             modal={false}
-             open={this.state.open}
-             onRequestClose={this.handleClose}
-             titleStyle={{textAlign: 'center'}}
-             bodyStyle={{textAlign: 'center'}}
-             actionsContainerStyle={{textAlign: 'center'}}
-             >
-               <img src={`https://farm${this.state.dialogBoxContents.farm}.staticflickr.com/${this.state.dialogBoxContents.server}/${this.state.dialogBoxContents.id}_${this.state.dialogBoxContents.secret}.jpg`} align="middle"/>
-             </Dialog>
+        {this.props.favorites.length > 0 &&
+          <div>
+            <div style={{backgroundColor: 'black', height: '70px', width: '40%', margin: 'auto', fontFamily: 'Roboto, sans-serif', color: 'white', textAlign: 'center', fontSize: '2em', verticalAlign: 'middle', lineHeight: '70px', marginBottom: '20px', borderRadius: '10px'}}>
+              Your Favorites
+            </div>
+            <div style={styles.root}>
+              <GridList
+                cellHeight={300}
+                style={styles.gridList}
+                cols={3}
+              >
+                {this.props.favorites.map((photo, index) => (
+                  <GridTile
+                    key={index}
+                    title={photo.title || 'Untitled'}
+                    actionIcon={<IconButton><DeleteForever color="white" onClick={this.props.deleteFromFavorites.bind(this, photo)}/></IconButton>}
+                  >
+                    <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} onClick={ this.setDialogBoxContents.bind(this, photo)} style={{cursor: 'pointer'}}/>
+                  </GridTile>
+                ))}
+              </GridList>
+              <Dialog
+               title={this.state.dialogBoxContents.title || 'Untitled'}
+               actions={actions}
+               modal={false}
+               open={this.state.open}
+               onRequestClose={this.handleClose}
+               titleStyle={{textAlign: 'center', backgroundColor: 'black', color: 'white'}}
+               bodyStyle={{textAlign: 'center', backgroundColor: 'black'}}
+               actionsContainerStyle={{textAlign: 'center', backgroundColor: 'black'}}
+               >
+                 <img src={`https://farm${this.state.dialogBoxContents.farm}.staticflickr.com/${this.state.dialogBoxContents.server}/${this.state.dialogBoxContents.id}_${this.state.dialogBoxContents.secret}.jpg`} align="middle"/>
+               </Dialog>
+            </div>
           </div>
-        </div>
+        }
       </MuiThemeProvider>
     );
   }
