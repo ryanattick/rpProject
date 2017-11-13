@@ -12,7 +12,6 @@ import Divider from 'material-ui/Divider';
 
 class Sidebar extends Component {
 
-
   render() {
     return (
       <div className={style.Sidebar}>
