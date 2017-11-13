@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import style from '../style/app.css';
+import style from '../style/App.css';
 
 //Components
 import Sidebar from './Sidebar.js';

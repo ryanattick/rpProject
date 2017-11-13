@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import style from '../style/Search.css';
 
 //Material-UI
 import RaisedButton from 'material-ui/RaisedButton';
@@ -39,7 +40,7 @@ handleSubmit(event) {
           </label>
           <RaisedButton label="Go" onClick={this.handleSubmit} labelColor="#062F4F"/>
         </form>
-        <div style={{margin: '20px', color: 'white', fontSize: '1.25em', fontFamily: 'Roboto, sans-serif', fontWeight: 'bold'}}>
+        <div className={style.SearchRequest}>
          {this.props.searchRequest}
         </div>
       </div>

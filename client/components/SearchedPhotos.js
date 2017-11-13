@@ -99,7 +99,7 @@ class SearchedPhotos extends Component {
              bodyStyle={{textAlign: 'center', backgroundColor: 'black'}}
              actionsContainerStyle={{textAlign: 'center', backgroundColor: 'black'}}
              >
-               <img src={`https://farm${this.state.dialogBoxContents.farm}.staticflickr.com/${this.state.dialogBoxContents.server}/${this.state.dialogBoxContents.id}_${this.state.dialogBoxContents.secret}.jpg`} align="middle"/>
+               <img src={`https://farm${this.state.dialogBoxContents.farm}.staticflickr.com/${this.state.dialogBoxContents.server}/${this.state.dialogBoxContents.id}_${this.state.dialogBoxContents.secret}.jpg`} align="middle" />
              </Dialog>
           </div>
         </div>}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import style from '../style/Favorites.css';
 
 //Material-UI
 import {GridList, GridTile} from 'material-ui/GridList';
@@ -68,14 +69,14 @@ class Favorites extends Component {
     return (
       <MuiThemeProvider>
         {this.props.favorites.length === 0 &&
-          <div style={{color: '#B82601', fontSize: '3em', fontFamily: 'Roboto, sans-serif', margin: 'auto', textAlign: 'center', maxWidth: '60%', marginTop: '20px'}}>
+          <div className={style.NoPhotos}>
             Please add some cool photos to your favorites by clicking the star icon.<br/>
             <StarBorder color="#B82601"/>
           </div>
         }
         {this.props.favorites.length > 0 &&
           <div>
-            <div style={{backgroundColor: 'black', height: '70px', width: '40%', margin: 'auto', fontFamily: 'Roboto, sans-serif', color: 'white', textAlign: 'center', fontSize: '2em', verticalAlign: 'middle', lineHeight: '70px', marginBottom: '20px', borderRadius: '10px'}}>
+            <div className={style.YourFavoritesHeader}>
               Your Favorites
             </div>
             <div style={styles.root}>
