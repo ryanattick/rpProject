@@ -16,19 +16,25 @@ class SearchedPhotos extends Component {
     super(props);
     this.state = {
       dialogBoxContents: [],
-      open: false
+      open: false,
+      openAddedToFavorites: false,
     };
     this.handleClose = this.handleClose.bind(this);
     this.handleOpen = this.handleOpen.bind(this);
     this.setDialogBoxContents = this.setDialogBoxContents.bind(this);
+    this.handleOpenAddToFavorites = this.handleOpenAddToFavorites.bind(this);
   }
 
   handleOpen (photo) {
      this.setState({open: true});
    };
 
+   handleOpenAddToFavorites () {
+      this.setState({openAddedToFavorites: true});
+    };
+
    handleClose () {
-     this.setState({open: false});
+     this.setState({open: false, openAddedToFavorites: false});
    };
 
    setDialogBoxContents (chosenPhoto) {
@@ -82,7 +88,7 @@ class SearchedPhotos extends Component {
                 <GridTile
                   key={index}
                   title={photo.title || 'Untitled'}
-                  actionIcon={<IconButton onClick={this.props.addToFavorites.bind(this, photo)}><StarBorder tooltip='Add to Favorites' hoverColor='#B82601' color='white' /></IconButton>}
+                  actionIcon={<IconButton onClick={this.props.addToFavorites.bind(this, photo)}><StarBorder onClick={this.handleOpenAddToFavorites} hoverColor='#B82601' color='white' /></IconButton>}
                 >
                   <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}
                   onClick={ this.setDialogBoxContents.bind(this, photo)} style={{cursor: 'pointer'}}/>
@@ -101,6 +107,17 @@ class SearchedPhotos extends Component {
              >
                <img src={`https://farm${this.state.dialogBoxContents.farm}.staticflickr.com/${this.state.dialogBoxContents.server}/${this.state.dialogBoxContents.id}_${this.state.dialogBoxContents.secret}.jpg`} align='middle' />
              </Dialog>
+             <Dialog
+              title={'Photo Added to Favorites!'}
+              actions={actions}
+              modal={false}
+              open={this.state.openAddedToFavorites}
+              onRequestClose={this.handleClose}
+              titleStyle={{textAlign: 'center', backgroundColor: 'black', color:'white' }}
+              bodyStyle={{textAlign: 'center', backgroundColor: 'black'}}
+              actionsContainerStyle={{textAlign: 'center', backgroundColor: 'black'}}
+              >
+              </Dialog>
           </div>
         </div>}
       </MuiThemeProvider>

@@ -130,17 +130,14 @@ progress(completed) {
 
 //Favorites Functions
 addToFavorites (photoToAddToFavorites) {
-  var alreadyContainsThisPhoto = false;
-  for (var i = 0; i < this.state.favorites.length; i++) {
-    if (this.state.favorites[i].title === photoToAddToFavorites.title) {
-      alreadyContainsThisPhoto = true;
+  for (var i = 0; i < this.state.photos.length; i++) {
+    if (this.state.photos[i].id === photoToAddToFavorites.id) {
+      this.state.favorites.push(photoToAddToFavorites);
+      this.state.photos.splice(i, 1);
     }
   }
-  if (!alreadyContainsThisPhoto) {
-    photoToAddToFavorites.favorited = true;
-    this.state.favorites.push(photoToAddToFavorites);
-  }
   this.setState({
+    photos: this.state.photos,
     favorites: this.state.favorites
   })
 }
@@ -160,10 +157,12 @@ backToMain () {
 deleteFromFavorites (photoToBeDeleted) {
   for (var i = 0; i < this.state.favorites.length; i++) {
     if (this.state.favorites[i].id === photoToBeDeleted.id) {
+      this.state.photos.unshift(photoToBeDeleted);
       this.state.favorites.splice(i, 1);
     }
   }
   this.setState({
+    photos: this.state.photos,
     favorites: this.state.favorites
   })
 }
