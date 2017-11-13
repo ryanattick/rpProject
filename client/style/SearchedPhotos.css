@@ -1,0 +1,13 @@
+.NoSearchData {
+  margin: auto;
+  min-height: 50%;
+  font-family: Roboto, sans-serif;
+  font-size: 2em;
+  text-align: center;
+}
+
+.NoSearchDataImage {
+  margin: auto;
+  min-height: 50%;
+  display: block;
+}

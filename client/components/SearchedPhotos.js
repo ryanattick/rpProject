@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import style from '../style/SearchedPhotos.css'
 
 //Material-UI
 import {GridList, GridTile} from 'material-ui/GridList';
@@ -65,9 +66,9 @@ class SearchedPhotos extends Component {
     return (
       <MuiThemeProvider>
         {this.props.photos.length === 0 &&
-          <div style={{margin: 'auto', minHeight: '50%', fontFamily: 'Roboto, sans-serif', fontSize: '2em', textAlign: 'center'}}>
+          <div className={style.NoSearchData}>
             Sorry! There are no images that match your request. Please try searching for something else.
-            <img src="https://i.imgur.com/AgASQTd.jpg" style={{margin: 'auto', minHeight: '50%', display: 'block'}}/>
+            <img src="https://i.imgur.com/AgASQTd.jpg" className={style.NoSearchDataImage}/>
           </div>
         }
         {this.props.photos.length > 0 &&

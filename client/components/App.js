@@ -171,7 +171,7 @@ deleteFromFavorites (photoToBeDeleted) {
           showMenuIconButton={false}
           titleStyle={{fontSize: '3em'}}
           style={{padding: '30px', background: 'black'}}>
-            <div style={{display: 'inline-flex', flexDirection: 'column', flexWrap: 'nowrap', justifyContent: 'center', alignContent: 'space-between', alignItems: 'center'}}>
+            <div className={style.AppBar}>
               {this.state.page === 'main' &&
                 <RaisedButton label="Favorites" onClick={this.goToFavorites} style={{marginBottom: '20px'}} labelColor="#062F4F"/>
               }

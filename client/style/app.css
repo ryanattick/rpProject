@@ -6,3 +6,12 @@
     align-content: space-around;
     align-items: flex-start;
   }
+
+.AppBar {
+  display: inline-flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: space-between;
+  align-items: center;
+}
