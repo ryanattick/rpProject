@@ -157,12 +157,10 @@ backToMain () {
 deleteFromFavorites (photoToBeDeleted) {
   for (var i = 0; i < this.state.favorites.length; i++) {
     if (this.state.favorites[i].id === photoToBeDeleted.id) {
-      this.state.photos.unshift(photoToBeDeleted);
       this.state.favorites.splice(i, 1);
     }
   }
   this.setState({
-    photos: this.state.photos,
     favorites: this.state.favorites
   })
 }
