@@ -128,9 +128,18 @@ progress(completed) {
   }
 }
 
-//Favorite Functions
+//Favorites Functions
 addToFavorites (photoToAddToFavorites) {
-  this.state.favorites.push(photoToAddToFavorites);
+  var alreadyContainsThisPhoto = false;
+  for (var i = 0; i < this.state.favorites.length; i++) {
+    if (this.state.favorites[i].title === photoToAddToFavorites.title) {
+      alreadyContainsThisPhoto = true;
+    }
+  }
+  if (!alreadyContainsThisPhoto) {
+    photoToAddToFavorites.favorited = true;
+    this.state.favorites.push(photoToAddToFavorites);
+  }
   this.setState({
     favorites: this.state.favorites
   })
@@ -167,20 +176,20 @@ deleteFromFavorites (photoToBeDeleted) {
     return (
         <MuiThemeProvider>
           <AppBar
-          title="Redshift Coding Challenge"
+          title='Redshift Coding Challenge'
           showMenuIconButton={false}
           titleStyle={{fontSize: '3em'}}
           style={{padding: '30px', background: 'black'}}>
             <div className={style.AppBar}>
               {this.state.page === 'main' &&
-                <RaisedButton label="Favorites" onClick={this.goToFavorites} style={{marginBottom: '20px'}} labelColor="#062F4F"/>
+                <RaisedButton label='Favorites' onClick={this.goToFavorites} style={{marginBottom: '20px'}} labelColor='#062F4F'/>
               }
               {this.state.page === 'favorites' &&
-                <RaisedButton label="Home" onClick={this.backToMain} labelColor="#062F4F" style={{marginBottom: '20px'}}/>
+                <RaisedButton label='Home' onClick={this.backToMain} labelColor='#062F4F' style={{marginBottom: '20px'}}/>
               }
             </div>
           </AppBar>
-          <LinearProgress mode="determinate" value={this.state.completed} color="#B82601"/><br/>
+          <LinearProgress mode='determinate' value={this.state.completed} color='#B82601'/><br/>
         {this.state.page === 'main' &&
         <div>
           <div className={style.App}>

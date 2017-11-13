@@ -36,9 +36,9 @@ handleSubmit(event) {
       <div>
         <form onSubmit={this.handleSubmit}>
           <label style={{margin: '20px'}}>
-            <TextField hintText="Search Images" hintStyle={{color:'white'}} inputStyle={{color:'white'}} value={this.state.value} style={{maxWidth: '60%'}}  underlineFocusStyle={{borderColor: '#B82601'}} onChange={this.handleChange}/>
+            <TextField hintText='Search Images' hintStyle={{color:'white'}} inputStyle={{color:'white'}} value={this.state.value} style={{maxWidth: '60%'}}  underlineFocusStyle={{borderColor: '#B82601'}} onChange={this.handleChange}/>
           </label>
-          <RaisedButton label="Go" onClick={this.handleSubmit} labelColor="#062F4F"/>
+          <RaisedButton label='Go' onClick={this.handleSubmit} labelColor='#062F4F'/>
         </form>
         <div className={style.SearchRequest}>
          {this.props.searchRequest}

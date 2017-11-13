@@ -43,7 +43,7 @@ class SearchedPhotos extends Component {
   render() {
     const actions = [
        <FlatButton
-         label="Close"
+         label='Close'
          primary={true}
          onClick={this.handleClose}
          labelStyle={{color: '#B82601'}}
@@ -68,7 +68,7 @@ class SearchedPhotos extends Component {
         {this.props.photos.length === 0 &&
           <div className={style.NoSearchData}>
             Sorry! There are no images that match your request. Please try searching for something else.
-            <img src="https://i.imgur.com/AgASQTd.jpg" className={style.NoSearchDataImage}/>
+            <img src='https://i.imgur.com/AgASQTd.jpg' className={style.NoSearchDataImage}/>
           </div>
         }
         {this.props.photos.length > 0 &&
@@ -82,7 +82,7 @@ class SearchedPhotos extends Component {
                 <GridTile
                   key={index}
                   title={photo.title || 'Untitled'}
-                  actionIcon={<IconButton onClick={this.props.addToFavorites.bind(this, photo)}><StarBorder tooltip="Add to Favorites" hoverColor='#B82601' color="white" /></IconButton>}
+                  actionIcon={<IconButton onClick={this.props.addToFavorites.bind(this, photo)}><StarBorder tooltip='Add to Favorites' hoverColor='#B82601' color='white' /></IconButton>}
                 >
                   <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`}
                   onClick={ this.setDialogBoxContents.bind(this, photo)} style={{cursor: 'pointer'}}/>
@@ -99,7 +99,7 @@ class SearchedPhotos extends Component {
              bodyStyle={{textAlign: 'center', backgroundColor: 'black'}}
              actionsContainerStyle={{textAlign: 'center', backgroundColor: 'black'}}
              >
-               <img src={`https://farm${this.state.dialogBoxContents.farm}.staticflickr.com/${this.state.dialogBoxContents.server}/${this.state.dialogBoxContents.id}_${this.state.dialogBoxContents.secret}.jpg`} align="middle" />
+               <img src={`https://farm${this.state.dialogBoxContents.farm}.staticflickr.com/${this.state.dialogBoxContents.server}/${this.state.dialogBoxContents.id}_${this.state.dialogBoxContents.secret}.jpg`} align='middle' />
              </Dialog>
           </div>
         </div>}

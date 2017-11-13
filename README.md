@@ -3,7 +3,7 @@ This project was developed in order to let users search and browse up to date se
 
 
 ## Set Up
-There are two steps for developer setup of this app:
+There are three steps for developer setup of this app:
 - npm install
 - npm run build
 - npm run start

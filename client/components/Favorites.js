@@ -46,7 +46,7 @@ class Favorites extends Component {
   render() {
     const actions = [
        <FlatButton
-         label="Close"
+         label='Close'
          primary={true}
          onClick={this.handleClose}
          labelStyle={{color: '#B82601'}}
@@ -71,7 +71,7 @@ class Favorites extends Component {
         {this.props.favorites.length === 0 &&
           <div className={style.NoPhotos}>
             Please add some cool photos to your favorites by clicking the star icon.<br/>
-            <StarBorder color="#B82601"/>
+            <StarBorder color='#B82601'/>
           </div>
         }
         {this.props.favorites.length > 0 &&
@@ -89,7 +89,7 @@ class Favorites extends Component {
                   <GridTile
                     key={index}
                     title={photo.title || 'Untitled'}
-                    actionIcon={<IconButton><DeleteForever color="white" onClick={this.props.deleteFromFavorites.bind(this, photo)}/></IconButton>}
+                    actionIcon={<IconButton><DeleteForever color='white' onClick={this.props.deleteFromFavorites.bind(this, photo)}/></IconButton>}
                   >
                     <img src={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} onClick={ this.setDialogBoxContents.bind(this, photo)} style={{cursor: 'pointer'}}/>
                   </GridTile>
@@ -105,7 +105,7 @@ class Favorites extends Component {
                bodyStyle={{textAlign: 'center', backgroundColor: 'black'}}
                actionsContainerStyle={{textAlign: 'center', backgroundColor: 'black'}}
                >
-                 <img src={`https://farm${this.state.dialogBoxContents.farm}.staticflickr.com/${this.state.dialogBoxContents.server}/${this.state.dialogBoxContents.id}_${this.state.dialogBoxContents.secret}.jpg`} align="middle"/>
+                 <img src={`https://farm${this.state.dialogBoxContents.farm}.staticflickr.com/${this.state.dialogBoxContents.server}/${this.state.dialogBoxContents.id}_${this.state.dialogBoxContents.secret}.jpg`} align='middle'/>
                </Dialog>
             </div>
           </div>
