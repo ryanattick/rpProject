@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {Link} from 'react-router-dom';
+import lessonData from '../../../lessonData';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButton from 'material-ui/RaisedButton';
 
 //each letter is going to need it's own tag so that each letter can be clicked on?
 
-const words = ['https://i.imgur.com/x5LhCS0.jpg', 'https://i.imgur.com/ZUPEJBx.jpg', 'https://i.imgur.com/Kx3oeLd.jpg']
+const books = lessonData.CR21a.books;
 
 class Read extends Component {
   constructor(props) {
@@ -22,8 +23,8 @@ class Read extends Component {
         <div style={{display: 'flex', flexFlow: 'column wrap', alignItems: 'space-around'}}>
           <div style={{textAlign: 'center', fontSize: '2em', marginBottom: '20px', fontWeight: 'bold'}}>Choose your book.</div><p></p>
           <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around'}}>
-            {words.map((word, index) => (
-                <img key={index} src={word} onClick={() => {this.setState({bookChoice: word})}} style={{width: '20%', cursor: 'pointer'}}/>
+            {books.map((book, index) => (
+                <img key={index} src={book} onClick={() => {this.setState({bookChoice: book})}} style={{width: '20%', cursor: 'pointer'}}/>
               ))
             }
           </div>
