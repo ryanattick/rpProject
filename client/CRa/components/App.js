@@ -25,9 +25,14 @@ class App extends Component {
       lessonChosen: true,
       lessonClicked: ''
     };
-  };
+    this.onLessonClick = this.onLessonClick.bind(this);
+};
 
   // const lesson = this.state.lessonClicked;
+
+  onLessonClick(lesson) {
+    console.log(lesson);
+  }
 
   render() {
     return (
@@ -47,7 +52,7 @@ class App extends Component {
             </div>
           }
           {!this.state.lessonChosen &&
-            <LessonMenu/>
+            <LessonMenu onLessonClick={this.onLessonClick}/>
           }
         </div>
       </MuiThemeProvider>
