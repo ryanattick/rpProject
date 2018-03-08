@@ -31,7 +31,11 @@ class App extends Component {
   // const lesson = this.state.lessonClicked;
 
   onLessonClick(lesson) {
-    console.log(lesson);
+    let lessonNumber = `CR${lesson.substring(0, lesson.indexOf(' ')).replace('.','')}`;
+
+    this.setState({
+      lessonClicked: lessonNumber
+    }, () => console.log(this.state));
   }
 
   render() {
