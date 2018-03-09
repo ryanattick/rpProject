@@ -21,9 +21,14 @@ class App extends Component {
     this.state = {
       lessonName: '',
       lessonClicked: '',
-      data: ''
+      data: '',
+      tryItOutAnswers: [],
+      bookChoice: '',
+      activityAnswers: []
     };
     this.onLessonClick = this.onLessonClick.bind(this);
+    this.getBookChoice = this.getBookChoice.bind(this);
+    this.getTryItOutAnswers = this.getTryItOutAnswers.bind(this);
 };
 
 
@@ -40,6 +45,18 @@ class App extends Component {
     });
   }
 
+  getBookChoice(book) {
+    this.setState({
+      bookChoice : book
+    });
+  }
+
+  getTryItOutAnswers(answer1, answer2, answer3) {
+    this.setState({
+      tryItOutAnswers : [answer1, answer2, answer3]
+    });
+  }
+
   render() {
     return (
         <div>
@@ -49,8 +66,8 @@ class App extends Component {
               <Header/>
               <Switch>
                 <Route exact path='/learn' render={()=> <Learn data={this.state.data}/>}/>
-                <Route exact path='/tryitout' render={()=> <TryItOut data={this.state.data}/>}/>
-                <Route exact path='/read' render={()=> <Read data={this.state.data}/>}/>
+                <Route exact path='/tryitout' render={()=> <TryItOut getTryItOutAnswers={this.getTryItOutAnswers} data={this.state.data}/>}/>
+                <Route exact path='/read' render={()=> <Read getBookChoice={this.getBookChoice} data={this.state.data}/>}/>
                 <Route exact path='/activity' render={()=> <Activity data={this.state.data}/>}/>
               </Switch>
             </div>

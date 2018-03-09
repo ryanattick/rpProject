@@ -69,9 +69,11 @@ class TryItOut extends Component {
               <TextField onChange={(event) => this.handleAnswer3Input(event)} hintText='Type your answer here' fullWidth={true}/>
             </div>
             {this.state.answer1 !== '' && this.state.answer2 !== '' && this.state.answer3 !== '' &&
-              <Link to='/read' style={{marginBottom: '20px'}}>
-                <RaisedButton label='Next' primary={true}/>
-              </Link>
+              <div>
+                <Link to='/read' style={{marginBottom: '20px'}}>
+                  <RaisedButton label='Next' primary={true} onClick={() => this.props.getTryItOutAnswers(this.state.answer1, this.state.answer2, this.state.answer3)}/>
+                </Link>
+              </div>
             }
           </div>
         </div>

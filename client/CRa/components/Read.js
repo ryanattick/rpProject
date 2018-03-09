@@ -22,6 +22,13 @@ class Read extends Component {
     });
   }
 
+  handleBookClick(book) {
+    this.setState({
+      bookChoice: book
+    });
+    this.props.getBookChoice(book);
+  }
+
   render() {
     return (
       <MuiThemeProvider>
@@ -29,7 +36,7 @@ class Read extends Component {
           <div style={{textAlign: 'center', fontSize: '2em', marginBottom: '20px', fontWeight: 'bold'}}>Choose your book.</div><p></p>
           <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around'}}>
             {this.state.data.books.map((book, index) => (
-                <img key={index} src={book} onClick={() => {this.setState({bookChoice: book})}} style={{width: '20%', cursor: 'pointer'}}/>
+                <img key={index} src={book} onClick={() => this.handleBookClick(book)}  style={{width: '20%', cursor: 'pointer'}}/>
               ))
             }
           </div>
