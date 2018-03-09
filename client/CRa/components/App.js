@@ -7,6 +7,7 @@ import TryItOut from './TryItOut';
 import Read from './Read';
 import Activity from './Activity';
 import LessonMenu from './LessonMenu';
+import Report from './Report';
 import lessonData from '../../../lessonData';
 
 // #E29622 orange
@@ -24,11 +25,13 @@ class App extends Component {
       data: '',
       tryItOutAnswers: [],
       bookChoice: '',
-      activityAnswers: []
+      activityAnswers: [],
+      lessonComplete: false
     };
     this.onLessonClick = this.onLessonClick.bind(this);
     this.getBookChoice = this.getBookChoice.bind(this);
     this.getTryItOutAnswers = this.getTryItOutAnswers.bind(this);
+    this.getActivityAnswers = this.getActivityAnswers.bind(this);
 };
 
 
@@ -57,10 +60,17 @@ class App extends Component {
     });
   }
 
+  getActivityAnswers(answers) {
+    this.setState({
+      activityAnswers: answers,
+      lessonComplete: true
+    });
+  }
+
   render() {
     return (
         <div>
-          {typeof this.state.data === 'object' &&
+          {typeof this.state.data === 'object' && !this.state.lessonComplete &&
             <div>
               <div style={{fontSize: '24px', textAlign: 'center'}}>{this.state.lessonName}</div>
               <Header/>
@@ -68,12 +78,15 @@ class App extends Component {
                 <Route exact path='/learn' render={()=> <Learn data={this.state.data}/>}/>
                 <Route exact path='/tryitout' render={()=> <TryItOut getTryItOutAnswers={this.getTryItOutAnswers} data={this.state.data}/>}/>
                 <Route exact path='/read' render={()=> <Read getBookChoice={this.getBookChoice} data={this.state.data}/>}/>
-                <Route exact path='/activity' render={()=> <Activity data={this.state.data}/>}/>
+                <Route exact path='/activity' render={()=> <Activity getActivityAnswers={this.getActivityAnswers} data={this.state.data}/>}/>
               </Switch>
             </div>
           }
           {this.state.lessonClicked === '' &&
             <LessonMenu onLessonClick={this.onLessonClick}/>
+          }
+          {this.state.lessonComplete &&
+            <Report bookChoice={this.state.bookChoice} tryItOutAnswers={this.state.tryItOutAnswers} activityAnswers={this.state.activityAnswers}/>
           }
         </div>
     );

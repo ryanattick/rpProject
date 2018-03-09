@@ -44,6 +44,7 @@ class TryItOut extends Component {
     }
 
     // style={{pointerEvents: 'none'}} for giphy onhover
+    //CONTIDIONALLY RENDER IFRAME BASED ON WHETHER OR NOT ITS A VIDEO OR GIF
 
   render() {
     return (
