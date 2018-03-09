@@ -24,6 +24,7 @@ class Activity extends Component {
         [activity[13]]: '',
         [activity[14]]: '',
         [activity[15]]: '',
+        data: {}
       };
     };
 
@@ -32,6 +33,8 @@ class Activity extends Component {
       [state]: event.target.value
     }, () => console.log(this.state))
   }
+
+  
 
   render() {
     return (
