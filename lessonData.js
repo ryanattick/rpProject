@@ -8,9 +8,10 @@ module.exports = {
     activity: ['An inference is a something you figure out using the clues in the words and pictures.', 'Look back in the book and find four places where you can make inferences. In each bubble, write one inference and then two clues that helped you make that inference. Remember to use complete sentances!', 'Inference', 'inference1', 'clue1a', 'clue1b', 'inference2', 'clue2a', 'clue2b', 'inference3', 'clue3a', 'clue3b', 'inference4', 'clue4a', 'clue4b']
   },
   CR22a: {
-    learn: ['Story Structure', 'https://www.youtube.com/embed/hqEqT7wG9zA?rel=0&amp;showinfo=0&amp;start=10', ],
-    practice: [],
-    books: [],
-    activity: []
+    learn: ['Story Structure', 'https://www.youtube.com/embed/NxiiOXycvlI?rel=0&amp;showinfo=0&amp;start=7', 'https://www.youtube.com/embed/hqEqT7wG9zA?rel=0&amp;showinfo=0&amp;start=10', '1. Characters: Who is in the story \n 2. Setting: Where the story happens \n 3. Problem: Something in the story that needs to be fixed \n 4. Solution: How the problem gets fixed \n 5. Events: Things that happen in the story'],
+    practice: ['1. Characters: Who is in the story \n 2. Setting: Where the story happens \n 3. Problem: Something in the story that needs to be fixed \n 4. Solution: How the problem gets fixed \n 5. Events: Things that happen in the story', 'Watch the video (you might want to make it full screen), then answer the questions.', 'Remember, a setting is where the story happens.', 'What is the setting of this story? How do you know?', 'https://www.youtube.com/embed/2GCzyZexnNE?rel=0&amp;showinfo=0', 'Remember, character are people of animals in the story.', 'Who are the characters in this story?', 'Remember, a problem is something that needs to be fixed.', 'What is the problem in this story?'],
+    books: [
+      'https://i.imgur.com/x5LhCS0.jpg', 'https://i.imgur.com/ZUPEJBx.jpg'],
+    activity: ['An inference is a something you figure out using the clues in the words and pictures.', 'Look back in the book and find four places where you can make inferences. In each bubble, write one inference and then two clues that helped you make that inference. Remember to use complete sentances!', 'Inference', 'inference1', 'clue1a', 'clue1b', 'inference2', 'clue2a', 'clue2b', 'inference3', 'clue3a', 'clue3b', 'inference4', 'clue4a', 'clue4b']
   }
 }

@@ -43,12 +43,14 @@ class TryItOut extends Component {
       });
     }
 
+    // style={{pointerEvents: 'none'}} for giphy onhover
+
   render() {
     return (
       <MuiThemeProvider>
         <div style={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap'}}>
           <div style={{fontSize: '2em', fontWeight: 'bold', textAlign: 'center', backgroundColor: '#6B92B1', borderRadius: '10px', width: '80%'}}>{this.state.data.practice[0]}</div>
-          <iframe src={this.state.data.practice[4]} width="327" height="480" frameBorder="0" style={{pointerEvents: 'none'}}></iframe><p></p>
+          <iframe src={this.state.data.practice[4]} width="327" height="480" allowFullScreen allow="autoplay; encrypted-media" frameBorder="0" style={{margin: '20px'}}></iframe><p></p>
           <div style={{display: 'flex', flexFlow: 'column wrap', alignItems: 'center', textAlign: 'center'}}>
             <div style={{fontSize: '2em', padding: '20px'}}><strong>Directions: </strong>{this.state.data.practice[1]}</div>
             <div style={{border: '2px solid black', margin: '10px', width: '80%', fontSize: '1.5em'}}>

@@ -19,7 +19,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      lessonChosen: true,
+      lessonName: '',
       lessonClicked: '',
       data: ''
     };
@@ -31,6 +31,7 @@ class App extends Component {
     let lessonNumber = `CR${lesson.substring(0, lesson.indexOf(' ')).replace('.','')}`;
 
     this.setState({
+      lessonName: lesson,
       lessonClicked: lessonNumber
     }, () => {
       this.setState({
@@ -44,7 +45,7 @@ class App extends Component {
         <div>
           {typeof this.state.data === 'object' &&
             <div>
-              <div style={{fontSize: '24px', textAlign: 'center'}}>Comprehension Reader Lesson 2.7a: Making Inferences</div>
+              <div style={{fontSize: '24px', textAlign: 'center'}}>{this.state.lessonName}</div>
               <Header/>
               <Switch>
                 <Route exact path='/learn' render={()=> <Learn data={this.state.data}/>}/>
