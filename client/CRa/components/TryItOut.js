@@ -43,15 +43,22 @@ class TryItOut extends Component {
       });
     }
 
-    // style={{pointerEvents: 'none'}} for giphy onhover
-    //CONTIDIONALLY RENDER IFRAME BASED ON WHETHER OR NOT ITS A VIDEO OR GIF
 
   render() {
     return (
       <MuiThemeProvider>
         <div style={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap'}}>
           <div style={{fontSize: '2em', fontWeight: 'bold', textAlign: 'center', backgroundColor: '#6B92B1', borderRadius: '10px', width: '80%'}}>{this.state.data.practice[0]}</div>
-          <iframe src={this.state.data.practice[4]} width="327" height="480" allowFullScreen allow="autoplay; encrypted-media" frameBorder="0" style={{margin: '20px'}}></iframe><p></p>
+          {this.state.data.practice[4].includes('youtube') &&
+            <div>
+              <iframe src={this.state.data.practice[4]} width="560" height="316" allowFullScreen allow="autoplay; encrypted-media" frameBorder="0" style={{margin: '20px'}}></iframe><p></p>
+            </div>
+          }
+          {this.state.data.practice[4].includes('giphy') &&
+            <div>
+              <iframe src={this.state.data.practice[4]} width="560" height="316" allowFullScreen allow="autoplay; encrypted-media" frameBorder="0" style={{margin: '20px', pointerEvents: 'none'}}></iframe><p></p>
+            </div>
+          }
           <div style={{display: 'flex', flexFlow: 'column wrap', alignItems: 'center', textAlign: 'center'}}>
             <div style={{fontSize: '2em', padding: '20px'}}><strong>Directions: </strong>{this.state.data.practice[1]}</div>
             <div style={{border: '2px solid black', margin: '10px', width: '80%', fontSize: '1.5em'}}>
@@ -71,8 +78,8 @@ class TryItOut extends Component {
             </div>
             {this.state.answer1 !== '' && this.state.answer2 !== '' && this.state.answer3 !== '' &&
               <div>
-                <Link to='/read' style={{marginBottom: '20px'}}>
-                  <RaisedButton label='Next' primary={true} onClick={() => this.props.getTryItOutAnswers(this.state.answer1, this.state.answer2, this.state.answer3)}/>
+                <Link to='/read' >
+                  <RaisedButton style={{marginBottom: '20px'}} label='Next' primary={true} onClick={() => this.props.getTryItOutAnswers(this.state.answer1, this.state.answer2, this.state.answer3)}/>
                 </Link>
               </div>
             }

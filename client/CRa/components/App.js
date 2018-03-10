@@ -8,6 +8,7 @@ import Read from './Read';
 import Activity from './Activity';
 import LessonMenu from './LessonMenu';
 import Report from './Report';
+import LessonComplete from './LessonComplete';
 import lessonData from '../../../lessonData';
 
 // #E29622 orange
@@ -86,7 +87,8 @@ class App extends Component {
             <LessonMenu onLessonClick={this.onLessonClick}/>
           }
           {this.state.lessonComplete &&
-            <Report bookChoice={this.state.bookChoice} tryItOutAnswers={this.state.tryItOutAnswers} activityAnswers={this.state.activityAnswers}/>
+            <LessonComplete data={this.state.data}/>
+            // <Report bookChoice={this.state.bookChoice} tryItOutAnswers={this.state.tryItOutAnswers} activityAnswers={this.state.activityAnswers}/>
           }
         </div>
     );

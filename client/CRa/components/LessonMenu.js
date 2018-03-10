@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const lessons = ['2.1a Sequence of Events', '2.2a Story Structure', '2.3a Character\'s Response to Events'];
+const lessons = ['2.1a Sequence of Events', '2.2a Story Structure', '2.3a Character\'s Response to Events', '2.4a Main Topic in an Informational Text', '2.5a Informational Text Features'];
 
 
 const LessonMenu = (props) => {

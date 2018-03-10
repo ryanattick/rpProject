@@ -44,7 +44,7 @@ class Read extends Component {
          <div style={{alignSelf: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
            <img src={this.state.bookChoice} style={{minWidth: '20%', border: '4px solid black', borderRadius: '10px', margin: '20px'}}/>
            <Link to='/activity'>
-             <RaisedButton label='Next' primary={true}/>
+             <RaisedButton style={{marginBottom: '20px'}} label='Next' primary={true}/>
            </Link>
          </div>
           }

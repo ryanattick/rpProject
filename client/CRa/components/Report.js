@@ -12,7 +12,7 @@ const Report = (props) => {
         {props.tryItOutAnswers.map((answer) => (
           <div>{answer}</div>
         ))}
-      </div>
+      </div> Activity Answers:
       {props.activityAnswers.heading1[0]}: {props.activityAnswers.heading1[1]}
       {props.activityAnswers.subheading1a[0]}: {props.activityAnswers.subheading1a[1]}
       {props.activityAnswers.subheading1b[0]}: {props.activityAnswers.subheading1b[1]}

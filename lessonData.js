@@ -5,20 +5,40 @@ module.exports = {
     books: [
       'https://i.imgur.com/x5LhCS0.jpg', 'https://i.imgur.com/ZUPEJBx.jpg', 'https://i.imgur.com/Kx3oeLd.jpg'
     ],
-    activity: ['An inference is a something you figure out using the clues in the words and pictures.', 'Look back in the book and find four places where you can make inferences. In each bubble, write one inference and then two clues that helped you make that inference. Remember to use complete sentances!', 'Inference', 'Inference', 'Inference', 'Inference', 'Clue #1', 'Clue#2']
+    activity: ['An inference is a something you figure out using the clues in the words and pictures.', 'Look back in the book and find four places where you can make inferences. In each bubble, write one inference and then two clues that helped you make that inference. Remember to use complete sentances!', 'Inference', 'Inference', 'Inference', 'Inference', 'Clue #1', 'Clue#2'],
+    lessonComplete: ['You did it! Keep working hard!', 'https://giphy.com/embed/l0MYu0z6TH0t4PFII']
   },
   CR22a: {
     learn: ['Story Structure', 'https://www.youtube.com/embed/NxiiOXycvlI?rel=0&amp;showinfo=0&amp;start=7', 'https://www.youtube.com/embed/hqEqT7wG9zA?rel=0&amp;showinfo=0&amp;start=10', '1. Characters: Who is in the story \n 2. Setting: Where the story happens \n 3. Problem: Something in the story that needs to be fixed \n 4. Solution: How the problem gets fixed \n 5. Events: Things that happen in the story'],
-    practice: ['1. Characters: Who is in the story \n 2. Setting: Where the story happens \n 3. Problem: Something in the story that needs to be fixed \n 4. Solution: How the problem gets fixed \n 5. Events: Things that happen in the story', 'Watch the video (you might want to make it full screen), then answer the questions.', 'Remember, a setting is where the story happens.', 'What is the setting of this story? How do you know?', 'https://www.youtube.com/embed/2GCzyZexnNE?rel=0&amp;showinfo=0', 'Remember, character are people of animals in the story.', 'Who are the characters in this story?', 'Remember, a problem is something that needs to be fixed.', 'What is the problem in this story?'],
+    practice: ['1. Characters: Who is in the story \n 2. Setting: Where the story happens \n 3. Problem: Something in the story that needs to be fixed \n 4. Solution: How the problem gets fixed \n 5. Events: Things that happen in the story', 'Watch the video`, then answer the questions.', 'Remember, a setting is where the story happens.', 'What is the setting of this story? How do you know?', 'https://www.youtube.com/embed/2GCzyZexnNE?rel=0&amp;showinfo=0', 'Remember, character are people of animals in the story.', 'Who are the characters in this story?', 'Remember, a problem is something that needs to be fixed.', 'What is the problem in this story?'],
     books: [
       'https://i.imgur.com/x5LhCS0.jpg', 'https://i.imgur.com/ZUPEJBx.jpg'],
-    activity: ['1. Characters: Who is in the story \n 2. Setting: Where the story happens \n 3. Problem: Something in the story that needs to be fixed \n 4. Solution: How the problem gets fixed \n 5. Events: Things that happen in the story', 'Look back in the book and find the five differnt parts of story structure. In each bubble, fill in the part of story structure it asks for and two reasons why you think that. Remember to use complete sentances!', 'Characters', 'Setting', 'Problem', 'Solution', 'Reason #1', 'Reason #2']
+    activity: ['1. Characters: Who is in the story \n 2. Setting: Where the story happens \n 3. Problem: Something in the story that needs to be fixed \n 4. Solution: How the problem gets fixed \n 5. Events: Things that happen in the story', 'Look back in the book and find the five differnt parts of story structure. In each bubble, fill in the part of story structure it asks for and two reasons why you think that. Remember to use complete sentances!', 'Characters', 'Setting', 'Problem', 'Solution', 'Reason #1', 'Reason #2'],
+    lessonComplete: ['Be proud of yourself! You accomplished something great today!', 'https://giphy.com/embed/jbtCu5ScXS2He']
   },
   CR23a: {
     learn: ['Character\'s Response to Events', 'https://giphy.com/embed/3oEhmKV4lJzCspvw9W', 'https://www.youtube.com/embed/Iekv6R9U1dM?rel=0&amp;showinfo=0', 'How characters feel or what they do when something happens in the story.'],
-    practice: ['How characters feel or what they do when something happens in the story.', 'Watch the video (you might want to make it full screen), then answer the questions.', 'How does the first bird respond when they other birds land near it?', 'How do you know?', 'https://www.youtube.com/embed/MZ2tq0F8-ww?rel=0&amp;showinfo=0', 'How do the small birds respond when they see the large bird?', 'How do you know?', 'How do the small birds respond when the big bird flips upside down?', 'How do you know?'],
+    practice: ['How characters feel or what they do when something happens in the story.', 'Watch the video, then answer the questions.', 'How does the first bird respond when they other birds land near it?', 'How do you know?', 'https://www.youtube.com/embed/MZ2tq0F8-ww?rel=0&amp;showinfo=0', 'How do the small birds respond when they see the large bird?', 'How do you know?', 'How do the small birds respond when the big bird flips upside down?', 'How do you know?'],
     books: [
       'https://i.imgur.com/9Z1DiQE.jpg', 'https://i.imgur.com/EdC1wTz.jpg', 'https://i.imgur.com/KcLlCzs.jpg'],
-    activity: ['How characters feel or what they do when something happens in the story.', 'Look back in the book and find some events and character\'s responses to them in the story. In each bubble, write about a major event and how characters responded to it. Remember to use complete sentances!', 'Event #1', 'Event #2', 'Event #3', 'Event #4', 'Response #1', 'Response #2']
+    activity: ['How characters feel or what they do when something happens in the story.', 'Look back in the book and find some events and character\'s responses to them in the story. In each bubble, write about a major event and how characters responded to it. Remember to use complete sentances!', 'Event #1', 'Event #2', 'Event #3', 'Event #4', 'Response #1', 'Response #2'],
+    lessonComplete: ['Keep growing your brain and trying things even if they\'re hard!', 'https://giphy.com/embed/3oEdvaBf2nJbIKrWOQ']
+  },
+
+  CR24a: {
+    learn: ['Main Topic in an Informational Text', 'https://www.youtube.com/embed/-o_lA7oSSWs?rel=0&amp;showinfo=0&amp;start=8', 'https://www.youtube.com/embed/C1W46goOpu0?rel=0&amp;showinfo=0', 'An informational text is one that teaches us true things and a main topic is what the text is all about.'],
+    practice: ['An informational text is one that teaches us true things and a main topic is what the text is all about.', 'Watch the video, then answer the questions.', 'Is this video informational?', 'How do you know?', 'https://www.youtube.com/embed/3pi6acgWOdk?rel=0&amp;showinfo=0', 'What do you think is the main topic of this video?', '', 'What is one piece of information that tells you that is the main topic?', ''],
+    books: [
+      'https://i.imgur.com/kaqqHhy.jpg'],
+    activity: ['An informational text is one that teaches us true things and a main topic is what the text is all about.', 'In the first bubble, write what the main topic of the book was. In the next three bubbles, write about pieces of information you learned about that main topic. Remember to use complete sentances!', 'Main Topic', 'Information', 'Information', 'Information', '', ''],
+    lessonComplete: ['You can learn ANYTHING you want if you work hard enough. Great job today!', 'https://giphy.com/embed/l378hTnSHp8EI0la0']
+  },
+  CR25a: {
+    learn: ['Informational Text Features', 'https://www.youtube.com/embed/3mAl9QMJJTo?rel=0&amp;showinfo=0', 'https://giphy.com/embed/l44Q9EPJIzYediXp6', 'An informational text is one that teaches us true things and a main topic is what the text is all about.'],
+    practice: ['An informational text is one that teaches us true things and a main topic is what the text is all about.', 'Watch the video, then answer the questions.', 'Is this video informational?', 'How do you know?', 'https://www.youtube.com/embed/3pi6acgWOdk?rel=0&amp;showinfo=0', 'What do you think is the main topic of this video?', '', 'What is one piece of information that tells you that is the main topic?', ''],
+    books: [
+      'https://i.imgur.com/kaqqHhy.jpg'],
+    activity: ['An informational text is one that teaches us true things and a main topic is what the text is all about.', 'In the first bubble, write what the main topic of the book was. In the next three bubbles, write about pieces of information you learned about that main topic. Remember to use complete sentances!', 'Main Topic', 'Information', 'Information', 'Information', '', ''],
+    lessonComplete: ['Follow your dreams and put in the work to become who you want to be!', 'https://giphy.com/embed/3o7aDerSmoHSvdLrFK']
   }
 }
