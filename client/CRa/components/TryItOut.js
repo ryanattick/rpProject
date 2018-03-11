@@ -54,9 +54,14 @@ class TryItOut extends Component {
               <iframe src={this.state.data.practice[4]} width="560" height="316" allowFullScreen allow="autoplay; encrypted-media" frameBorder="0" style={{margin: '20px'}}></iframe><p></p>
             </div>
           }
+          {this.state.data.practice[4].includes('google') &&
+            <div>
+              <img src={this.state.data.practice[4]} style={{border: '2px solid black', borderRadius: '10px', margin: '20px'}}></img>
+            </div>
+          }
           {this.state.data.practice[4].includes('giphy') &&
             <div>
-              <iframe src={this.state.data.practice[4]} width="560" height="316" allowFullScreen allow="autoplay; encrypted-media" frameBorder="0" style={{margin: '20px', pointerEvents: 'none'}}></iframe><p></p>
+              <iframe src={this.state.data.practice[4]} width="480" height="480" allowFullScreen allow="autoplay; encrypted-media" frameBorder="0" style={{margin: '20px', pointerEvents: 'none'}}></iframe><p></p>
             </div>
           }
           <div style={{display: 'flex', flexFlow: 'column wrap', alignItems: 'center', textAlign: 'center'}}>
