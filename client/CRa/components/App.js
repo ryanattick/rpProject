@@ -75,7 +75,7 @@ class App extends Component {
             <div>
               <div style={{fontSize: '24px', textAlign: 'center', borderBottom: '4px solid black', paddingBottom: '25px', margin: '20px'}}>{this.state.lessonName}</div>
               <Switch>
-                <Route exact path='/learn' render={()=> <Learn data={this.state.data}/>}/>
+                <Route exact path='/' render={()=> <Learn data={this.state.data}/>}/>
                 <Route exact path='/tryitout' render={()=> <TryItOut getTryItOutAnswers={this.getTryItOutAnswers} data={this.state.data}/>}/>
                 <Route exact path='/read' render={()=> <Read getBookChoice={this.getBookChoice} data={this.state.data}/>}/>
                 <Route exact path='/activity' render={()=> <Activity getActivityAnswers={this.getActivityAnswers} data={this.state.data}/>}/>
