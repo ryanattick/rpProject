@@ -30,7 +30,7 @@ class Activity extends Component {
   handleTextChange(state, event) {
     this.setState({
       [state]: event.target.value
-    }, () => console.log(this.state.heading1, state))
+    })
   }
 
   componentWillMount() {

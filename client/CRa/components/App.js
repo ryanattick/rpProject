@@ -88,8 +88,12 @@ class App extends Component {
             <LessonMenu onLessonClick={this.onLessonClick}/>
           }
           {this.state.lessonComplete &&
-            <LessonComplete data={this.state.data}/>
-            // <Report bookChoice={this.state.bookChoice} tryItOutAnswers={this.state.tryItOutAnswers} activityAnswers={this.state.activityAnswers}/>
+            <div>
+              <Link to='/' style={{color: 'black', textDecoration: 'none', cursor: 'none'}}>
+                <div style={{fontSize: '24px', textAlign: 'center', borderBottom: '4px solid black', paddingBottom: '25px', margin: '20px', cursor: 'pointer'}} onClick={() => this.setState({lessonClicked: '', data: '', lessonComplete: false})}>{this.state.lessonName}</div>
+              </Link>
+              <LessonComplete data={this.state.data}/>
+            </div>
           }
         </div>
     );
@@ -97,3 +101,5 @@ class App extends Component {
 }
 
 export default App;
+
+// <Report bookChoice={this.state.bookChoice} tryItOutAnswers={this.state.tryItOutAnswers} activityAnswers={this.state.activityAnswers}/>
