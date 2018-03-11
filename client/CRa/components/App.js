@@ -73,8 +73,7 @@ class App extends Component {
         <div>
           {typeof this.state.data === 'object' && !this.state.lessonComplete &&
             <div>
-              <div style={{fontSize: '24px', textAlign: 'center'}}>{this.state.lessonName}</div>
-              <Header/>
+              <div style={{fontSize: '24px', textAlign: 'center', borderBottom: '4px solid black', paddingBottom: '25px', margin: '20px'}}>{this.state.lessonName}</div>
               <Switch>
                 <Route exact path='/learn' render={()=> <Learn data={this.state.data}/>}/>
                 <Route exact path='/tryitout' render={()=> <TryItOut getTryItOutAnswers={this.getTryItOutAnswers} data={this.state.data}/>}/>

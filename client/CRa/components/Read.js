@@ -36,13 +36,13 @@ class Read extends Component {
           <div style={{textAlign: 'center', fontSize: '2em', marginBottom: '20px', fontWeight: 'bold'}}>Choose your book.</div><p></p>
           <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around'}}>
             {this.state.data.books.map((book, index) => (
-                <img key={index} src={book} onClick={() => this.handleBookClick(book)}  style={{width: '20%', cursor: 'pointer'}}/>
+                <img key={index} src={book} onClick={() => this.handleBookClick(book)}  style={{width: '250px', height: '300px', cursor: 'pointer'}}/>
               ))
             }
           </div>
          {this.state.bookChoice !== '' &&
          <div style={{alignSelf: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-           <img src={this.state.bookChoice} style={{minWidth: '20%', border: '4px solid black', borderRadius: '10px', margin: '20px'}}/>
+           <img src={this.state.bookChoice} style={{width: '300px', height: '350px', border: '4px solid black', borderRadius: '10px', margin: '20px'}}/>
            <Link to='/activity'>
              <RaisedButton style={{marginBottom: '20px'}} label='Next' primary={true}/>
            </Link>
