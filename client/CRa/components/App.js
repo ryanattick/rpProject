@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import {Switch, Route} from 'react-router-dom';
+import {Switch, Route, Link} from 'react-router-dom';
 import Header from './Header';
 import Learn from './Learn';
 import TryItOut from './TryItOut';
@@ -73,7 +73,9 @@ class App extends Component {
         <div>
           {typeof this.state.data === 'object' && !this.state.lessonComplete &&
             <div>
-              <div style={{fontSize: '24px', textAlign: 'center', borderBottom: '4px solid black', paddingBottom: '25px', margin: '20px'}}>{this.state.lessonName}</div>
+              <Link to='/' style={{color: 'black', textDecoration: 'none', cursor: 'none'}}>
+                <div style={{fontSize: '24px', textAlign: 'center', borderBottom: '4px solid black', paddingBottom: '25px', margin: '20px', cursor: 'pointer'}} onClick={() => this.setState({lessonClicked: '', data: ''})}>{this.state.lessonName}</div>
+              </Link>
               <Switch>
                 <Route exact path='/' render={()=> <Learn data={this.state.data}/>}/>
                 <Route exact path='/tryitout' render={()=> <TryItOut getTryItOutAnswers={this.getTryItOutAnswers} data={this.state.data}/>}/>

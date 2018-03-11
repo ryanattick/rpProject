@@ -66,6 +66,13 @@ class TryItOut extends Component {
           }
           <div style={{display: 'flex', flexFlow: 'column wrap', alignItems: 'center', textAlign: 'center'}}>
             <div style={{fontSize: '2em', padding: '20px'}}><strong>Directions: </strong>{this.state.data.practice[1]}</div>
+              {this.state.answer1 !== '' && this.state.answer2 !== '' && this.state.answer3 !== '' &&
+                <div>
+                  <Link to='/read' >
+                    <RaisedButton style={{marginBottom: '20px'}} label='Next' primary={true} onClick={() => this.props.getTryItOutAnswers(this.state.answer1, this.state.answer2, this.state.answer3)}/>
+                  </Link>
+                </div>
+              }
             <div style={{border: '2px solid black', margin: '10px', width: '80%', fontSize: '1.5em'}}>
               <strong>{this.state.data.practice[2]}</strong> <br/>
               {this.state.data.practice[3]}
@@ -81,13 +88,6 @@ class TryItOut extends Component {
               {this.state.data.practice[8]}
               <TextField onChange={(event) => this.handleAnswer3Input(event)} hintText='Type your answer here' fullWidth={true}/>
             </div>
-            {this.state.answer1 !== '' && this.state.answer2 !== '' && this.state.answer3 !== '' &&
-              <div>
-                <Link to='/read' >
-                  <RaisedButton style={{marginBottom: '20px'}} label='Next' primary={true} onClick={() => this.props.getTryItOutAnswers(this.state.answer1, this.state.answer2, this.state.answer3)}/>
-                </Link>
-              </div>
-            }
           </div>
         </div>
       </MuiThemeProvider>

@@ -42,10 +42,10 @@ class Read extends Component {
           </div>
          {this.state.bookChoice !== '' &&
          <div style={{alignSelf: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-           <img src={this.state.bookChoice} style={{width: '300px', height: '350px', border: '4px solid black', borderRadius: '10px', margin: '20px'}}/>
            <Link to='/activity'>
-             <RaisedButton style={{marginBottom: '20px'}} label='Next' primary={true}/>
+             <RaisedButton style={{margin: '20px'}} label='Next' primary={true}/>
            </Link>
+           <img src={this.state.bookChoice} style={{width: '300px', height: '350px', border: '4px solid black', borderRadius: '10px', margin: '20px'}}/>
          </div>
           }
         </div>
