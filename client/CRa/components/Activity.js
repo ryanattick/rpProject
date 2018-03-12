@@ -47,6 +47,7 @@ class Activity extends Component {
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-end', flexWrap: 'wrap', width: '80%', margin: 'auto'}}>
           <div style={{fontSize: '2em', fontWeight: 'bold', textAlign: 'center', backgroundColor: '#6B92B1', borderRadius: '10px', width: '80%', alignSelf: 'center', marginBottom: '20px'}}>{this.state.data.activity[0]}</div>
           <div style={{fontSize: '2em', padding: '20px', alignSelf: 'center'}}><strong>Directions: </strong>{this.state.data.activity[1]}</div>
+          <div style={{fontSize: '1.5em', marginBottom: '10px', alignSelf: 'center'}}><em>The TUTOR should type these answers so the student can focus on the content.</em></div>
           <div style={{width: '500px', height: '500px', background: 'aqua', border: '2px solid #204E73', borderRadius: '50%', display: 'flex', justifyContent: 'center', flexFlow: 'column wrap', alignItems: 'center'}}>
             <TextField
               onChange={(event) => this.handleTextChange('heading1', event)}

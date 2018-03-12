@@ -66,6 +66,7 @@ class TryItOut extends Component {
           }
           <div style={{display: 'flex', flexFlow: 'column wrap', alignItems: 'center', textAlign: 'center'}}>
             <div style={{fontSize: '2em', padding: '20px'}}><strong>Directions: </strong>{this.state.data.practice[1]}</div>
+            <div style={{fontSize: '1.5em', marginBottom: '10px'}}><em>The student should type these answers (with some help if they need it).</em></div>
               {this.state.answer1 !== '' && this.state.answer2 !== '' && this.state.answer3 !== '' &&
                 <div>
                   <Link to='/read' >
