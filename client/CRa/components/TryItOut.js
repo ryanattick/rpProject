@@ -48,24 +48,24 @@ class TryItOut extends Component {
     return (
       <MuiThemeProvider>
         <div style={{display: 'flex', justifyContent: 'center', flexWrap: 'wrap'}}>
-          <div style={{fontSize: '2em', fontWeight: 'bold', textAlign: 'center', backgroundColor: '#6B92B1', borderRadius: '10px', width: '80%'}}>{this.state.data.practice[0]}</div>
-          {this.state.data.practice[4].includes('youtube') &&
+          <div style={{fontSize: '2em', fontWeight: 'bold', textAlign: 'center', backgroundColor: '#6B92B1', borderRadius: '10px', width: '80%'}}>{this.state.data.skillDescription}</div>
+          {this.state.data.practice.media.includes('youtube') &&
             <div>
-              <iframe src={this.state.data.practice[4]} width="560" height="316" allowFullScreen allow="autoplay; encrypted-media" frameBorder="0" style={{margin: '20px'}}></iframe><p></p>
+              <iframe src={this.state.data.practice.media} width="560" height="316" allowFullScreen allow="autoplay; encrypted-media" frameBorder="0" style={{margin: '20px'}}></iframe><p></p>
             </div>
           }
-          {this.state.data.practice[4].includes('google') &&
+          {this.state.data.practice.media.includes('google') &&
             <div>
-              <img src={this.state.data.practice[4]} style={{border: '2px solid black', borderRadius: '10px', margin: '20px'}}></img>
+              <img src={this.state.data.practice.media} style={{border: '2px solid black', borderRadius: '10px', margin: '20px'}}></img>
             </div>
           }
-          {this.state.data.practice[4].includes('giphy') &&
+          {this.state.data.practice.media.includes('giphy') &&
             <div>
-              <iframe src={this.state.data.practice[4]} width="480" height="480" allowFullScreen allow="autoplay; encrypted-media" frameBorder="0" style={{margin: '20px', pointerEvents: 'none'}}></iframe><p></p>
+              <iframe src={this.state.data.practice.media} width="480" height="480" allowFullScreen allow="autoplay; encrypted-media" frameBorder="0" style={{margin: '20px', pointerEvents: 'none'}}></iframe><p></p>
             </div>
           }
           <div style={{display: 'flex', flexFlow: 'column wrap', alignItems: 'center', textAlign: 'center'}}>
-            <div style={{fontSize: '2em', padding: '20px'}}><strong>Directions: </strong>{this.state.data.practice[1]}</div>
+            <div style={{fontSize: '2em', padding: '20px'}}><strong>Directions: </strong>{this.state.data.practice.directions}</div>
             <div style={{fontSize: '1.5em', marginBottom: '10px'}}><em>The student should type these answers (with some help if they need it).</em></div>
               {this.state.answer1 !== '' && this.state.answer2 !== '' && this.state.answer3 !== '' &&
                 <div>
@@ -75,18 +75,18 @@ class TryItOut extends Component {
                 </div>
               }
             <div style={{border: '2px solid black', margin: '10px', width: '80%', fontSize: '1.5em'}}>
-              <strong>{this.state.data.practice[2]}</strong> <br/>
-              {this.state.data.practice[3]}
+              <strong>{this.state.data.practice.question1}</strong> <br/>
+              {this.state.data.practice.subQuestion1}
               <TextField onChange={(event) => this.handleAnswer1Input(event)} hintText='Type your answer here' fullWidth={true}/>
             </div>
             <div style={{border: '2px solid black', margin: '10px', width: '80%', fontSize: '1.5em'}}>
-              <strong>{this.state.data.practice[5]}</strong> <br/>
-              {this.state.data.practice[6]}
+              <strong>{this.state.data.practice.question2}</strong> <br/>
+              {this.state.data.practice.subQuestion2}
               <TextField onChange={(event) => this.handleAnswer2Input(event)} hintText='Type your answer here' fullWidth={true}/>
             </div>
             <div style={{border: '2px solid black', margin: '10px', width: '80%', fontSize: '1.5em'}}>
-              <strong>{this.state.data.practice[7]}</strong> <br/>
-              {this.state.data.practice[8]}
+              <strong>{this.state.data.practice.question3}</strong> <br/>
+              {this.state.data.practice.subQuestion3}
               <TextField onChange={(event) => this.handleAnswer3Input(event)} hintText='Type your answer here' fullWidth={true}/>
             </div>
           </div>
