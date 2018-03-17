@@ -50,7 +50,7 @@ module.exports = {
     books: [
       'https://i.imgur.com/x5LhCS0.jpg', 'https://i.imgur.com/ZUPEJBx.jpg'],
       activity: {
-        directions: 'Look back in the book and find the five differnt parts of story structure. In each bubble, fill in the part of story structure it asks for and two reasons why you think that. Remember to use complete sentances!',
+        directions: 'Look back in the book and find the five different parts of story structure. In each bubble, fill in the part of story structure it asks for and two reasons why you think that. Remember to use complete sentences!',
         heading1: 'Characters',
         heading2: 'Setting',
         heading3: 'Problem',
