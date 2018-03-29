@@ -37,11 +37,11 @@ class TryItOut extends Component {
       });
     };
 
-    componentWillMount() {
-      this.setState({
-        data: this.props.data
-      });
-    }
+  componentWillMount() {
+    this.setState({
+      data: this.props.data
+    });
+  }
 
 
   render() {
@@ -69,7 +69,7 @@ class TryItOut extends Component {
             <div style={{fontSize: '1.5em', marginBottom: '10px'}}><em>The student should type these answers (with some help if they need it).</em></div>
               {this.state.answer1 !== '' && this.state.answer2 !== '' && this.state.answer3 !== '' &&
                 <div>
-                  <Link to='/read' >
+                  <Link to='/read'>
                     <RaisedButton style={{marginBottom: '20px'}} label='Next' primary={true} onClick={() => this.props.getTryItOutAnswers(this.state.answer1, this.state.answer2, this.state.answer3)}/>
                   </Link>
                 </div>

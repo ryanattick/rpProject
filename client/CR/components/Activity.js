@@ -41,13 +41,14 @@ class Activity extends Component {
 
   render() {
 
+    const tutor = 'The TUTOR should type these answers so the student can focus on the content.';
 
     return (
       <MuiThemeProvider>
         <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-end', flexWrap: 'wrap', width: '80%', margin: 'auto'}}>
           <div style={{fontSize: '2em', fontWeight: 'bold', textAlign: 'center', backgroundColor: '#6B92B1', borderRadius: '10px', width: '80%', alignSelf: 'center', marginBottom: '20px'}}>{this.state.data.skillDescription}</div>
           <div style={{fontSize: '2em', padding: '20px', alignSelf: 'center'}}><strong>Directions: </strong>{this.state.data.activity.directions}</div>
-          <div style={{fontSize: '1.5em', marginBottom: '10px', alignSelf: 'center'}}><em>The TUTOR should type these answers so the student can focus on the content.</em></div>
+          <div style={{fontSize: '1.5em', marginBottom: '10px', alignSelf: 'center'}}><em>{this.state.data.subdirections || tutor}</em></div>
           <div style={{width: '500px', height: '500px', background: 'aqua', border: '2px solid #204E73', borderRadius: '50%', display: 'flex', justifyContent: 'center', flexFlow: 'column wrap', alignItems: 'center'}}>
             <TextField
               onChange={(event) => this.handleTextChange('heading1', event)}
@@ -172,7 +173,26 @@ class Activity extends Component {
               />
             }
           </div>
-          {this.state.heading1.length > 0 && this.state.heading2.length > 0 && this.state.heading3.length > 0 && this.state.heading4.length > 0 &&
+          {this.state.heading1.length > 0 && this.state.heading2.length > 0 && this.state.heading3.length > 0 && this.state.heading4.length > 0 && this.state.data.subdirections &&
+            <Link to='/quiz'>
+              <RaisedButton style={{marginBottom: '20px'}} label='Done' primary={true} onClick={() => this.props.getActivityAnswers({
+                heading1: [this.state.data.activity.heading1, this.state.heading1],
+                subheading1a: [this.state.data.activity.subheading1, this.state.subheading1a],
+                subheading1b: [this.state.data.activity.subheading2, this.state.subheading1b],
+                heading2: [this.state.data.activity.heading2, this.state.heading2],
+                subheading2a: [this.state.data.activity.subheading1, this.state.subheading2a],
+                subheading2b: [this.state.data.activity.subheading2, this.state.subheading2b],
+                heading3: [this.state.data.activity.heading3, this.state.heading3],
+                subheading3a: [this.state.data.activity.subheading1, this.state.subheading3a],
+                subheading3b: [this.state.data.activity.subheading2, this.state.subheading3b],
+                heading4: [this.state.data.activity.heading4, this.state.heading4],
+                subheading4a: [this.state.data.activity.subheading1, this.state.subheading4a],
+                subheading4b: [this.state.data.activity.subheading2, this.state.subheading4b]
+              })}/>
+            </Link>
+
+          }
+          {this.state.heading1.length > 0 && this.state.heading2.length > 0 && this.state.heading3.length > 0 && this.state.heading4.length > 0 && !this.state.data.subdirections &&
             <RaisedButton style={{marginBottom: '20px'}} label='Done!' primary={true} onClick={() => this.props.getActivityAnswers({
               heading1: [this.state.data.activity.heading1, this.state.heading1],
               subheading1a: [this.state.data.activity.subheading1, this.state.subheading1a],

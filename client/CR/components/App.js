@@ -8,6 +8,8 @@ import Read from './Read';
 import Activity from './Activity';
 import LessonMenu from './LessonMenu';
 import Report from './Report';
+import Review from './Review';
+import Quiz from './Quiz';
 import LessonComplete from './LessonComplete';
 import lessonData from '../../../lessonData';
 
@@ -22,26 +24,31 @@ class App extends Component {
     super();
     this.state = {
       lessonName: '',
+      lessonType: '',
       lessonClicked: '',
       data: '',
       tryItOutAnswers: [],
       bookChoice: '',
       activityAnswers: [],
-      lessonComplete: false
+      lessonComplete: false,
+      lessonBComplete: false
     };
     this.onLessonClick = this.onLessonClick.bind(this);
     this.getBookChoice = this.getBookChoice.bind(this);
     this.getTryItOutAnswers = this.getTryItOutAnswers.bind(this);
     this.getActivityAnswers = this.getActivityAnswers.bind(this);
+    this.getQuizAnswers = this.getQuizAnswers.bind(this);
 };
 
 
   onLessonClick(lesson) {
     let lessonNumber = `CR${lesson.substring(0, lesson.indexOf(' ')).replace('.','')}`;
+    let lessonType = lessonNumber[lessonNumber.length - 1];
 
     this.setState({
       lessonName: lesson,
-      lessonClicked: lessonNumber
+      lessonClicked: lessonNumber,
+      lessonType: lessonType
     }, () => {
       this.setState({
         data: lessonData[this.state.lessonClicked]
@@ -68,6 +75,13 @@ class App extends Component {
     });
   }
 
+  getQuizAnswers(answers) {
+    this.setState({
+      // quizAnswers: answers,
+      lessonBComplete: true
+    });
+  }
+
   render() {
     const Alessons = ['2.1a Sequence of Events', '2.2a Story Structure', '2.3a Character\'s Response to Events', '2.4a Main Topic in an Informational Text', '2.5a Informational Text Features', '2.6a Sequence in an Informational Text', '2.7a Making Inferences', '2.8a Summarizing Stories'];
 
@@ -75,7 +89,7 @@ class App extends Component {
 
     return (
         <div>
-          {typeof this.state.data === 'object' && !this.state.lessonComplete &&
+          {typeof this.state.data === 'object' && !this.state.lessonComplete && this.state.lessonType === 'a' &&
             <div>
               <Link to='/' style={{color: 'black', textDecoration: 'none', cursor: 'none'}}>
                 <div style={{fontSize: '24px', textAlign: 'center', borderBottom: '4px solid black', paddingBottom: '25px', margin: '20px', cursor: 'pointer'}} onClick={() => this.setState({lessonClicked: '', data: ''})}>{this.state.lessonName}</div>
@@ -88,6 +102,19 @@ class App extends Component {
               </Switch>
             </div>
           }
+          {typeof this.state.data === 'object' && !this.state.lessonBComplete && this.state.lessonType === 'b' &&
+            <div>
+              <Link to='/' style={{color: 'black', textDecoration: 'none', cursor: 'none'}}>
+                <div style={{fontSize: '24px', textAlign: 'center', borderBottom: '4px solid black', paddingBottom: '25px', margin: '20px', cursor: 'pointer'}} onClick={() => this.setState({lessonClicked: '', data: ''})}>{this.state.lessonName}</div>
+              </Link>
+              <Switch>
+                <Route exact path='/' render={()=> <Review data={this.state.data}/>}/>
+                <Route exact path='/read' render={()=> <Read getBookChoice={this.getBookChoice}  data={this.state.data}/>}/>
+                <Route exact path='/activity' render={()=> <Activity getActivityAnswers={this.getActivityAnswers} data={this.state.data}/>}/>
+                <Route exact path='/quiz' render={()=> <Quiz getQuizAnswers={this.getQuizAnswers} data={this.state.data}/>}/>
+              </Switch>
+            </div>
+          }
           {this.state.lessonClicked === '' &&
             <div>
               <div style={{fontSize: '2.5em', fontWeight: 'bold', textAlign: 'center', backgroundColor: '#6B92B1', width: '90%', padding: '20px', margin: 'auto', marginBottom: '20px', marginTop: '20px'}}>Welcome to Reading Partners!</div>
@@ -97,7 +124,15 @@ class App extends Component {
               </div>
             </div>
           }
-          {this.state.lessonComplete &&
+          {this.state.lessonComplete && !this.state.data.subdirections &&
+            <div>
+              <Link to='/' style={{color: 'black', textDecoration: 'none', cursor: 'none'}}>
+                <div style={{fontSize: '24px', textAlign: 'center', borderBottom: '4px solid black', paddingBottom: '25px', margin: '20px', cursor: 'pointer'}} onClick={() => this.setState({lessonClicked: '', data: '', lessonComplete: false})}>{this.state.lessonName}</div>
+              </Link>
+              <LessonComplete data={this.state.data}/>
+            </div>
+          }
+          {this.state.lessonBComplete &&
             <div>
               <Link to='/' style={{color: 'black', textDecoration: 'none', cursor: 'none'}}>
                 <div style={{fontSize: '24px', textAlign: 'center', borderBottom: '4px solid black', paddingBottom: '25px', margin: '20px', cursor: 'pointer'}} onClick={() => this.setState({lessonClicked: '', data: '', lessonComplete: false})}>{this.state.lessonName}</div>
@@ -111,5 +146,3 @@ class App extends Component {
 }
 
 export default App;
-
-// <Report bookChoice={this.state.bookChoice} tryItOutAnswers={this.state.tryItOutAnswers} activityAnswers={this.state.activityAnswers}/>
