@@ -105,7 +105,7 @@ module.exports = {
       subQuestion3: 'What is the problem in this story?'
     },
     bookCovers: [
-      ['https://i.imgur.com/x5LhCS0.jpg', 'book'], ['https://i.imgur.com/ZUPEJBx.jpg', 'book']],
+      ['https://i.imgur.com/x5LhCS0.jpg', 'A Friend for Dragon'], ['https://i.imgur.com/ZUPEJBx.jpg', 'Dragon Gets By']],
       activity: {
         directions: 'Look back in the book and find the five different parts of story structure. In each bubble, fill in the part of story structure it asks for and two reasons why you think that. Remember to use complete sentences!',
         heading1: 'Characters',
@@ -135,7 +135,7 @@ module.exports = {
       subQuestion3: 'How do you know?'
     },
     bookCovers: [
-      'https://i.imgur.com/9Z1DiQE.jpg', 'https://i.imgur.com/EdC1wTz.jpg', 'https://i.imgur.com/KcLlCzs.jpg', 'https://lh3.googleusercontent.com/Tjmft3mqC3JDfFkzHaGfSQC8FhcdvLn6AKIr-4XquVSevlc-SEr0ALoycklrZt4O6Y_jOY0tXTB-_XpGPL2txGWq92qjOH5dv7UGFhWaIXwD693Kx8mNDoyK41K8frv9GkxCdLcSZgT4JRZYX4lsCRrIpMLmaHoXjX-UHzj53Ffst8vIlgnhidXTC8SuvAVqL1FSMFQVST8swxGKrWd8ya_yWLiS4p4VfZiJFmv3Pe_SZbksxdiibVXiu_BIlX_mzy2fZDfJ0RiKMc31RaSIJfJU71HP1p-GTHiToDUHkhr_qoxnssGH7OR4tuEz38GSb2Sd_4HL_6IDY3blLISa0Mi5rvaTkvGCus9wSHNsh5Jk5guShouu0fhWeJQn7_Ut55gzEefTRo4P35NAv5Cwi6HGLna2vkStmRItLPikkA68gERTG99QLd0BLDll_QEprKvwi4wnO_XBpIxjAMBr3-QZ4psIKvslVjcergqhRV99Lt22Ug2gLzkRGdzPUCji-CV3XXdYuSkEhH4Xrfk2dQ5snQMVdf8TX4A4olP5Ggs67MqPvxzZ-MzGDSLqyu_X2i-AZy6_kIs--o37YwUSkKlx2SDyp6h7JrLKfJk=w694-h826-no'],
+      ['https://i.imgur.com/9Z1DiQE.jpg', 'Otis'], ['https://i.imgur.com/EdC1wTz.jpg', 'Click Clack Moo'], ['https://i.imgur.com/KcLlCzs.jpg', 'Bear Wants More'], ['https://lh3.googleusercontent.com/Tjmft3mqC3JDfFkzHaGfSQC8FhcdvLn6AKIr-4XquVSevlc-SEr0ALoycklrZt4O6Y_jOY0tXTB-_XpGPL2txGWq92qjOH5dv7UGFhWaIXwD693Kx8mNDoyK41K8frv9GkxCdLcSZgT4JRZYX4lsCRrIpMLmaHoXjX-UHzj53Ffst8vIlgnhidXTC8SuvAVqL1FSMFQVST8swxGKrWd8ya_yWLiS4p4VfZiJFmv3Pe_SZbksxdiibVXiu_BIlX_mzy2fZDfJ0RiKMc31RaSIJfJU71HP1p-GTHiToDUHkhr_qoxnssGH7OR4tuEz38GSb2Sd_4HL_6IDY3blLISa0Mi5rvaTkvGCus9wSHNsh5Jk5guShouu0fhWeJQn7_Ut55gzEefTRo4P35NAv5Cwi6HGLna2vkStmRItLPikkA68gERTG99QLd0BLDll_QEprKvwi4wnO_XBpIxjAMBr3-QZ4psIKvslVjcergqhRV99Lt22Ug2gLzkRGdzPUCji-CV3XXdYuSkEhH4Xrfk2dQ5snQMVdf8TX4A4olP5Ggs67MqPvxzZ-MzGDSLqyu_X2i-AZy6_kIs--o37YwUSkKlx2SDyp6h7JrLKfJk=w694-h826-no', 'The Elm Tree']],
       activity: {
         directions: 'Look back in the book and find some events and character\'s responses to them in the story. In each bubble, write about a major event and how characters responded to it. Remember to use complete sentances!',
         heading1: 'Event #1',
@@ -166,7 +166,7 @@ module.exports = {
       subQuestion3: ''
     },
     bookCovers: [
-      'https://i.imgur.com/kaqqHhy.jpg'],
+      ['https://i.imgur.com/kaqqHhy.jpg', 'The Legend of Rock, Paper, and Scissors']],
       activity: {
         directions: 'In the first bubble, write what the main topic of the book was. In the next three bubbles, write about pieces of information you learned about that main topic. Remember to use complete sentances!',
         heading1: 'Main Topic',
@@ -196,7 +196,7 @@ module.exports = {
       subQuestion3: ''
     },
     bookCovers: [
-      'https://lh3.googleusercontent.com/0xxx2p1ekR69xvlUG018_-8ggME3YPeeBewRw59cMh3veh7v6xk8f_oNewR4OFZmRfTsTXlBLED8we3CTjQpTqo0LM3X0LtJvbIwq8vHY0DJxDoQIw67ImlLujY9aleIHcPoWszK8yx9ml9ufWeHKCdfoajelYgj2_6BAIqwELTBrPGcfC5KDKa10VzOicZyzJXCq7fp9gRZvHHHJWVqW9m9tVNkUkHQnr_5Xp76-ew6EdKdS7792LRrM9lkF8PsFY7m0QqPS-dQFw8PKr0l9tXnPeidDkoaiMoBmQFULYScgLjYoIKsQWK4F9laJrn9QlN-y2oQKaPAICprM59kIF1OBNjRorrdMSxSp2s_xkMoYZjrkTBBoMiYbMaVyX8bGNd_5p9BiFPnr8mDmoWZ8riwu1ejR-vBNRQDVeJ5fZea6AoCrAFrIqQqQPvFLpE793CRowO0ZW78YLOCLWHCtFJFjfVnhAB9uEgwYK86wt1fM0AkvC6PPTV-bSW-8z58MU2lvr2XyZZXjcpdYmVNNFEyfJBrbb1tDtn8QPajBY4_3XvBYbkChTT39W5k8aVGwgTBrUTko4ep8DMkaxK0r4bNibQNEdmlxSheSUk=w702-h723-no'],
+      ['https://lh3.googleusercontent.com/0xxx2p1ekR69xvlUG018_-8ggME3YPeeBewRw59cMh3veh7v6xk8f_oNewR4OFZmRfTsTXlBLED8we3CTjQpTqo0LM3X0LtJvbIwq8vHY0DJxDoQIw67ImlLujY9aleIHcPoWszK8yx9ml9ufWeHKCdfoajelYgj2_6BAIqwELTBrPGcfC5KDKa10VzOicZyzJXCq7fp9gRZvHHHJWVqW9m9tVNkUkHQnr_5Xp76-ew6EdKdS7792LRrM9lkF8PsFY7m0QqPS-dQFw8PKr0l9tXnPeidDkoaiMoBmQFULYScgLjYoIKsQWK4F9laJrn9QlN-y2oQKaPAICprM59kIF1OBNjRorrdMSxSp2s_xkMoYZjrkTBBoMiYbMaVyX8bGNd_5p9BiFPnr8mDmoWZ8riwu1ejR-vBNRQDVeJ5fZea6AoCrAFrIqQqQPvFLpE793CRowO0ZW78YLOCLWHCtFJFjfVnhAB9uEgwYK86wt1fM0AkvC6PPTV-bSW-8z58MU2lvr2XyZZXjcpdYmVNNFEyfJBrbb1tDtn8QPajBY4_3XvBYbkChTT39W5k8aVGwgTBrUTko4ep8DMkaxK0r4bNibQNEdmlxSheSUk=w702-h723-no', 'Acorn to Oak Tree']],
       activity: {
         directions: 'Choose one section from the book you read. Use the bubbles to fill in information about the informational text features in that section. Remember to use complete sentances!',
         heading1: 'What is the heading?',
@@ -226,7 +226,7 @@ module.exports = {
       subQuestion3: ''
     },
     bookCovers: [
-      'https://lh3.googleusercontent.com/0xxx2p1ekR69xvlUG018_-8ggME3YPeeBewRw59cMh3veh7v6xk8f_oNewR4OFZmRfTsTXlBLED8we3CTjQpTqo0LM3X0LtJvbIwq8vHY0DJxDoQIw67ImlLujY9aleIHcPoWszK8yx9ml9ufWeHKCdfoajelYgj2_6BAIqwELTBrPGcfC5KDKa10VzOicZyzJXCq7fp9gRZvHHHJWVqW9m9tVNkUkHQnr_5Xp76-ew6EdKdS7792LRrM9lkF8PsFY7m0QqPS-dQFw8PKr0l9tXnPeidDkoaiMoBmQFULYScgLjYoIKsQWK4F9laJrn9QlN-y2oQKaPAICprM59kIF1OBNjRorrdMSxSp2s_xkMoYZjrkTBBoMiYbMaVyX8bGNd_5p9BiFPnr8mDmoWZ8riwu1ejR-vBNRQDVeJ5fZea6AoCrAFrIqQqQPvFLpE793CRowO0ZW78YLOCLWHCtFJFjfVnhAB9uEgwYK86wt1fM0AkvC6PPTV-bSW-8z58MU2lvr2XyZZXjcpdYmVNNFEyfJBrbb1tDtn8QPajBY4_3XvBYbkChTT39W5k8aVGwgTBrUTko4ep8DMkaxK0r4bNibQNEdmlxSheSUk=w702-h723-no'],
+      ['https://lh3.googleusercontent.com/0xxx2p1ekR69xvlUG018_-8ggME3YPeeBewRw59cMh3veh7v6xk8f_oNewR4OFZmRfTsTXlBLED8we3CTjQpTqo0LM3X0LtJvbIwq8vHY0DJxDoQIw67ImlLujY9aleIHcPoWszK8yx9ml9ufWeHKCdfoajelYgj2_6BAIqwELTBrPGcfC5KDKa10VzOicZyzJXCq7fp9gRZvHHHJWVqW9m9tVNkUkHQnr_5Xp76-ew6EdKdS7792LRrM9lkF8PsFY7m0QqPS-dQFw8PKr0l9tXnPeidDkoaiMoBmQFULYScgLjYoIKsQWK4F9laJrn9QlN-y2oQKaPAICprM59kIF1OBNjRorrdMSxSp2s_xkMoYZjrkTBBoMiYbMaVyX8bGNd_5p9BiFPnr8mDmoWZ8riwu1ejR-vBNRQDVeJ5fZea6AoCrAFrIqQqQPvFLpE793CRowO0ZW78YLOCLWHCtFJFjfVnhAB9uEgwYK86wt1fM0AkvC6PPTV-bSW-8z58MU2lvr2XyZZXjcpdYmVNNFEyfJBrbb1tDtn8QPajBY4_3XvBYbkChTT39W5k8aVGwgTBrUTko4ep8DMkaxK0r4bNibQNEdmlxSheSUk=w702-h723-no', '']],
       activity: {
         directions: 'Choose one section from the book you read. Use the bubbles to fill in information about the informational text features in that section. Remember to use complete sentances!',
         heading1: 'What is the heading?',
@@ -256,7 +256,7 @@ module.exports = {
       subQuestion3: 'What inference can you make about how Bryan is feeling?'
   },
     bookCovers: [
-      'https://i.imgur.com/x5LhCS0.jpg', 'https://i.imgur.com/ZUPEJBx.jpg', 'https://i.imgur.com/Kx3oeLd.jpg'
+      ['https://i.imgur.com/x5LhCS0.jpg', 'A Friend for Dragon'], ['https://i.imgur.com/ZUPEJBx.jpg', 'Dragon gets By'], ['https://i.imgur.com/Kx3oeLd.jpg', 'My Lucky Day']
     ],
     activity: {
       directions: 'Look back in the book and find four places where you can make inferences. In each bubble, write one inference and then two clues that helped you make that inference. Remember to use complete sentances!',
@@ -287,7 +287,7 @@ module.exports = {
       subQuestion3: ''
   },
     bookCovers: [
-      'https://i.imgur.com/x5LhCS0.jpg', 'https://i.imgur.com/ZUPEJBx.jpg', 'https://i.imgur.com/Kx3oeLd.jpg'
+      ['https://i.imgur.com/x5LhCS0.jpg', 'A Friend for Dragon'], ['https://i.imgur.com/ZUPEJBx.jpg', 'Dragon gets By'], ['https://i.imgur.com/Kx3oeLd.jpg', 'My Lucky Day']
     ],
     activity: {
       directions: 'Look back in the book and think about how you can summarize it. Remember to use complete sentances!',

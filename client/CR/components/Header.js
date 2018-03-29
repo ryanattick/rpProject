@@ -53,6 +53,9 @@ handleOpen() {
           <div style={{border: '2px solid #E29622', height: '50px', flex: 1, textAlign: 'center', paddingTop: '15px', borderRadius: '10px'}}>
             <Link to='/activity' onClick={() => this.handleOpen()}>Activity</Link>
           </div>
+          <div style={{border: '2px solid #E29622', height: '50px', flex: 1, textAlign: 'center', paddingTop: '15px', borderRadius: '10px'}}>
+            <Link to='/quiz' onClick={() => this.handleOpen()}>Activity</Link>
+          </div>
           <Dialog
             actions={actions}
             modal={false}

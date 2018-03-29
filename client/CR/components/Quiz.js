@@ -124,7 +124,7 @@ class Quiz extends Component {
             </RadioButtonGroup>
           </div>
           {this.state.skillAnswer.length > 5 && this.state.question1 && this.state.question2 && this.state.question3 &&
-            <RaisedButton style={{marginBottom: '20px'}} label='Done!' primary={true} onClick={() => this.props.getQuizAnswers()}/>
+            <RaisedButton style={{marginBottom: '20px'}} label='Done!' primary={true} onClick={() => this.props.getQuizAnswers([[this.state.data.quiz.fillInTextHint, this.state.skillAnswer], [this.state.data.quiz.question1.questionText, this.state.question1], [this.state.data.quiz.question2.questionText, this.state.question2], [this.state.data.quiz.question3.questionText, this.state.question3]])}/>
           }
         </div>
       </MuiThemeProvider>

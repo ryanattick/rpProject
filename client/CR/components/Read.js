@@ -37,7 +37,7 @@ class Read extends Component {
           <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around'}}>
             {this.state.data.bookCovers.map((book, index) => (
               <div style={{display: 'flex', flexFlow: 'column wrap', alignItems: 'center'}}>
-                <img key={index} src={book[0]} onClick={() => this.handleBookClick(book[0])}  style={{width: '250px', height: '300px', cursor: 'pointer'}}/>
+                <img key={index} src={book[0]} onClick={() => this.handleBookClick(book[1])}  style={{width: '250px', height: '300px', cursor: 'pointer'}}/>
                 <div style={{fontSize: '2em', margin: '10px'}}>{book[1]}</div>
               </div>
               ))

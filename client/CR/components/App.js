@@ -30,6 +30,7 @@ class App extends Component {
       tryItOutAnswers: [],
       bookChoice: '',
       activityAnswers: [],
+      quizAnswers: [],
       lessonComplete: false,
       lessonBComplete: false
     };
@@ -77,9 +78,9 @@ class App extends Component {
 
   getQuizAnswers(answers) {
     this.setState({
-      // quizAnswers: answers,
+      quizAnswers: answers,
       lessonBComplete: true
-    });
+    }, () => console.log(this.state));
   }
 
   render() {
