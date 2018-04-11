@@ -76,18 +76,18 @@ class TryItOut extends Component {
               }
             <div style={{border: '2px solid black', margin: '10px', width: '80%', fontSize: '1.5em'}}>
               <strong>{this.state.data.practice.question1}</strong> <br/>
-              {this.state.data.practice.subQuestion1}
-              <TextField onChange={(event) => this.handleAnswer1Input(event)} hintText='Type your answer here' fullWidth={true}/>
+              {this.state.data.practice.subQuestion1}<br/>
+              <TextField onChange={(event) => this.handleAnswer1Input(event)} hintText='Type your answer here' style={{width: '80%'}}/>
             </div>
             <div style={{border: '2px solid black', margin: '10px', width: '80%', fontSize: '1.5em'}}>
               <strong>{this.state.data.practice.question2}</strong> <br/>
-              {this.state.data.practice.subQuestion2}
-              <TextField onChange={(event) => this.handleAnswer2Input(event)} hintText='Type your answer here' fullWidth={true}/>
+              {this.state.data.practice.subQuestion2}<br/>
+              <TextField onChange={(event) => this.handleAnswer2Input(event)} hintText='Type your answer here' style={{width: '80%'}}/>
             </div>
             <div style={{border: '2px solid black', margin: '10px', width: '80%', fontSize: '1.5em'}}>
               <strong>{this.state.data.practice.question3}</strong> <br/>
-              {this.state.data.practice.subQuestion3}
-              <TextField onChange={(event) => this.handleAnswer3Input(event)} hintText='Type your answer here' fullWidth={true}/>
+              {this.state.data.practice.subQuestion3}<br/>
+              <TextField onChange={(event) => this.handleAnswer3Input(event)} hintText='Type your answer here' style={{width: '80%'}}/>
             </div>
           </div>
         </div>

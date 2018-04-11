@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 import {Switch, Route, Link} from 'react-router-dom';
 import Header from './Header';
 import Learn from './Learn';
@@ -80,8 +81,21 @@ class App extends Component {
     this.setState({
       quizAnswers: answers,
       lessonBComplete: true
-    }, () => console.log(this.state));
+    }, () => console.log(this.state, 'QUIIIIIZZZ'));
   }
+
+  sendData() {
+    axios.post('/data', {
+      data: this.state
+    })
+    .then(function (response) {
+      console.log(response, 'RESPONSEEEE');
+    })
+    .catch(function (error) {
+      console.log(error, 'ERRORRRRR');
+    });
+  }
+
 
   render() {
     const Alessons = ['2.1a Sequence of Events', '2.2a Story Structure', '2.3a Character\'s Response to Events', '2.4a Main Topic in an Informational Text', '2.5a Informational Text Features', '2.6a Sequence in an Informational Text', '2.7a Making Inferences', '2.8a Summarizing Stories'];
